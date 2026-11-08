@@ -16,12 +16,12 @@
 ## Mục lục
 
 1.  [Tổng quan về Subagents](#1-tổng-quan-về-subagents)
-2.  [Lesson 1 -- What are subagents?](#2-lesson-1--what-are-subagents)
-3.  [Lesson 2 -- Creating a subagent](#3-lesson-2--creating-a-subagent)
+2.  [Lesson 1 -- What are subagents?](#2-lesson-1----what-are-subagents)
+3.  [Lesson 2 -- Creating a subagent](#3-lesson-2----creating-a-subagent)
 4.  [Lesson 3 -- Designing effective
-    subagents](#4-lesson-3--designing-effective-subagents)
+    subagents](#4-lesson-3----designing-effective-subagents)
 5.  [Lesson 4 -- Using subagents
-    effectively](#5-lesson-4--using-subagents-effectively)
+    effectively](#5-lesson-4----using-subagents-effectively)
 6.  [Quy trình thiết kế một hệ thống
     Subagents](#6-quy-trình-thiết-kế-một-hệ-thống-subagents)
 7.  [Ví dụ thực tế](#7-ví-dụ-thực-tế)
@@ -49,10 +49,11 @@ Có thể hình dung:
 -   **Subagent:** Người thực thi một nhiệm vụ cụ thể, có chỉ dẫn và
     quyền sử dụng công cụ phù hợp với nhiệm vụ đó.
 
-Ví dụ: Khi yêu cầu Claude Code xây dựng một tính năng lớn, agent chính
-có thể giao: - Subagent nghiên cứu cấu trúc codebase và tìm nơi cần thay
-đổi. - Subagent review bảo mật cho phần authentication. - Subagent kiểm
-tra tài liệu API hiện có.
+Ví dụ: Khi yêu cầu Claude Code xây dựng một tính năng lớn, agent chính có thể giao:
+
+- Subagent nghiên cứu cấu trúc codebase và tìm nơi cần thay đổi.
+- Subagent review bảo mật cho phần authentication.
+- Subagent kiểm tra tài liệu API hiện có.
 
 Mỗi subagent tập trung vào phạm vi riêng và gửi lại phát hiện quan
 trọng. Agent chính dùng kết quả đó để đưa ra quyết định hoặc tiếp tục
@@ -60,10 +61,12 @@ triển khai.
 
 ## 1.2. Vì sao cần Subagents?
 
-Trong các phiên làm việc dài, context window của agent chính có thể bị
-lấp đầy bởi: - Nội dung đọc từ nhiều file. - Log, kết quả tìm kiếm và
-output từ terminal. - Các bước điều tra trung gian. - Những chi tiết
-không cần thiết cho quyết định cuối cùng.
+Trong các phiên làm việc dài, context window của agent chính có thể bị lấp đầy bởi:
+
+- Nội dung đọc từ nhiều file.
+- Log, kết quả tìm kiếm và output từ terminal.
+- Các bước điều tra trung gian.
+- Những chi tiết không cần thiết cho quyết định cuối cùng.
 
 Subagent giải quyết vấn đề bằng cách đưa công việc phụ sang một context
 độc lập. Agent chính không cần chứa toàn bộ quá trình suy nghĩ và dữ
@@ -160,38 +163,31 @@ chỉnh.
 
 Một số built-in subagent thường gặp:
 
-  -----------------------------------------------------------------------
-  Subagent                            Vai trò
-  ----------------------------------- -----------------------------------
-  `Explore`                           Khám phá, tìm kiếm và điều hướng
-                                      codebase; phù hợp với công việc
-                                      đọc/khảo sát.
-
-  `Plan`                              Nghiên cứu và phân tích codebase
-                                      trong quá trình lập kế hoạch trước
-                                      khi đề xuất hướng triển khai.
-
-  `general-purpose`                   Thực hiện các nhiệm vụ tổng quát
-                                      khi cần một agent phụ có khả năng
-                                      sử dụng nhiều công cụ.
-  -----------------------------------------------------------------------
+| Subagent | Vai trò |
+| --- | --- |
+| `Explore` | Khám phá, tìm kiếm và điều hướng codebase; phù hợp với công việc đọc/khảo sát. |
+| `Plan` | Nghiên cứu và phân tích codebase trong quá trình lập kế hoạch trước khi đề xuất hướng triển khai. |
+| `general-purpose` | Thực hiện các nhiệm vụ tổng quát khi cần một agent phụ có khả năng sử dụng nhiều công cụ. |
 
 Tên, khả năng và cách cấu hình built-in agent có thể thay đổi theo phiên
 bản Claude Code.
 
-**Custom subagent** là agent do người dùng định nghĩa. Ví dụ: -
-`code-reviewer`: Review chất lượng và lỗi tiềm ẩn trong code. -
-`security-auditor`: Kiểm tra các vấn đề bảo mật theo checklist. -
-`documentation-writer`: Tạo hoặc cập nhật tài liệu kỹ thuật. -
-`test-writer`: Phân tích yêu cầu và đề xuất hoặc viết test.
+**Custom subagent** là agent do người dùng định nghĩa. Ví dụ:
+
+- `code-reviewer`: Review chất lượng và lỗi tiềm ẩn trong code.
+- `security-auditor`: Kiểm tra các vấn đề bảo mật theo checklist.
+- `documentation-writer`: Tạo hoặc cập nhật tài liệu kỹ thuật.
+- `test-writer`: Phân tích yêu cầu và đề xuất hoặc viết test.
 
 ### Khi nào cần Custom Subagent?
 
-Tạo custom subagent khi một công việc: - Lặp đi lặp lại trong nhiều
-phiên làm việc. - Có phạm vi, tiêu chí hoàn thành và quy trình tương đối
-ổn định. - Cần system prompt chuyên biệt. - Cần giới hạn tool access
-khác với agent chính. - Cần một định dạng kết quả thống nhất để agent
-chính dễ tổng hợp.
+Tạo custom subagent khi một công việc:
+
+- Lặp đi lặp lại trong nhiều phiên làm việc.
+- Có phạm vi, tiêu chí hoàn thành và quy trình tương đối ổn định.
+- Cần system prompt chuyên biệt.
+- Cần giới hạn tool access khác với agent chính.
+- Cần một định dạng kết quả thống nhất để agent chính dễ tổng hợp.
 
 ------------------------------------------------------------------------
 
@@ -199,19 +195,25 @@ chính dễ tổng hợp.
 
 ## 2.1. Mục tiêu bài học
 
-Sau bài này, cần hiểu: - Subagent là gì và giải quyết vấn đề nào. - Cách
-Claude Code tạo context riêng cho subagent. - Dữ liệu được truyền vào và
-kết quả được trả về như thế nào. - Vai trò của built-in subagents và
-custom subagents.
+Sau bài này, cần hiểu:
+
+- Subagent là gì và giải quyết vấn đề nào.
+- Cách Claude Code tạo context riêng cho subagent.
+- Dữ liệu được truyền vào và kết quả được trả về như thế nào.
+- Vai trò của built-in subagents và custom subagents.
 
 ## 2.2. Cơ chế giao việc (Delegation)
 
 Delegation là việc agent chính giao một nhiệm vụ cụ thể cho subagent
 thay vì tự thực hiện toàn bộ.
 
-Một nhiệm vụ tốt để giao thường có: - Mục tiêu rõ ràng. - Phạm vi xác
-định. - Kết quả mong đợi có thể mô tả. - Có thể thực hiện tương đối độc
-lập. - Không yêu cầu agent chính phải liên tục can thiệp vào từng bước.
+Một nhiệm vụ tốt để giao thường có:
+
+- Mục tiêu rõ ràng.
+- Phạm vi xác định.
+- Kết quả mong đợi có thể mô tả.
+- Có thể thực hiện tương đối độc lập.
+- Không yêu cầu agent chính phải liên tục can thiệp vào từng bước.
 
 Ví dụ chưa tốt:
 
@@ -255,11 +257,24 @@ Output càng có cấu trúc thì agent chính càng dễ sử dụng.
 Không nên xem subagent là một bản sao có đầy đủ lịch sử và mục tiêu của
 agent chính. Nó là một worker chuyên biệt được giao một nhiệm vụ.
 
-Agent chính cần làm tốt ba việc: 1. Chọn đúng phần việc để giao. 2.
-Truyền đúng thông tin. 3. Kiểm tra và tích hợp kết quả.
+Agent chính cần làm tốt ba việc:
+
+1. Chọn đúng phần việc để giao.
+2. Truyền đúng thông tin.
+3. Kiểm tra và tích hợp kết quả.
 
 Nếu đầu vào mơ hồ, subagent có thể hoàn thành một công việc khác với
 điều agent chính thực sự cần.
+
+## 2.5. Bổ sung từ bài học gốc
+
+- Context ban đầu của subagent gồm hai phần: **system prompt tùy chỉnh** (từ file cấu hình) và **mô tả nhiệm vụ do agent cha viết**. Chỉ bản tóm tắt được trả về luồng chính. Claude Code lưu **toàn bộ transcript** của subagent trong một file riêng.
+- Đánh đổi: luồng chính **không thấy** subagent đã đi đến kết luận bằng cách nào.
+- Ví dụ của bài: hỏi "service nào xử lý refund?" trong một codebase lạ. Subagent đọc hàng chục file trong context của nó; context chính chỉ chứa câu hỏi và câu trả lời.
+- Ba subagent có sẵn:
+  - **General purpose**: việc nhiều bước, vừa khám phá vừa hành động.
+  - **Explore**: tìm kiếm và điều hướng codebase nhanh.
+  - **Plan**: nghiên cứu trong plan mode trước khi đưa ra kế hoạch.
 
 ------------------------------------------------------------------------
 
@@ -267,9 +282,13 @@ Nếu đầu vào mơ hồ, subagent có thể hoàn thành một công việc k
 
 ## 3.1. Mục tiêu bài học
 
-Bài học hướng dẫn tạo custom subagent cho các workflow như: - Code
-review. - Viết test. - Tạo tài liệu. - Kiểm tra bảo mật. - Nghiên cứu
-codebase.
+Bài học hướng dẫn tạo custom subagent cho các workflow như:
+
+- Code review.
+- Viết test.
+- Tạo tài liệu.
+- Kiểm tra bảo mật.
+- Nghiên cứu codebase.
 
 Subagent tùy chỉnh được định nghĩa bằng một file Markdown có phần **YAML
 frontmatter** ở đầu file và phần nội dung hướng dẫn bên dưới.
@@ -287,8 +306,14 @@ Ví dụ prompt:
 > maintainability. Kết quả trả về theo cấu trúc gồm severity, file/line,
 > vấn đề, tác động và đề xuất sửa.
 
-Claude có thể tạo: - Tên agent. - Description. - System prompt. - Tool
-access. - Model phù hợp. - File cấu hình tại đúng vị trí.
+Claude có thể tạo:
+
+- Tên agent.
+- Description.
+- System prompt.
+- Tool access.
+- Model phù hợp.
+- File cấu hình tại đúng vị trí.
 
 Sau khi tạo, cần kiểm tra lại nội dung file, đặc biệt là description,
 quyền công cụ và format đầu ra.
@@ -321,9 +346,11 @@ your-project/
 .claude/agents/
 ```
 
-Đặc điểm: - Chỉ dùng trong project tương ứng. - Có thể commit vào Git để
-chia sẻ với nhóm. - Phù hợp với agent có quy tắc gắn với codebase hoặc
-quy trình của dự án.
+Đặc điểm:
+
+- Chỉ dùng trong project tương ứng.
+- Có thể commit vào Git để chia sẻ với nhóm.
+- Phù hợp với agent có quy tắc gắn với codebase hoặc quy trình của dự án.
 
 ### User-level
 
@@ -340,25 +367,20 @@ quy trình của dự án.
 ~/.claude/agents/
 ```
 
-Đặc điểm: - Có thể sử dụng trên nhiều project của cùng người dùng. - Phù
-hợp với agent mang tính cá nhân hoặc quy trình chung. - Không cần sao
-chép cấu hình vào từng repository.
+Đặc điểm:
+
+- Có thể sử dụng trên nhiều project của cùng người dùng.
+- Phù hợp với agent mang tính cá nhân hoặc quy trình chung.
+- Không cần sao chép cấu hình vào từng repository.
 
 ### Chọn scope nào?
 
-  -----------------------------------------------------------------------
-  Nhu cầu                             Scope nên chọn
-  ----------------------------------- -----------------------------------
-  Agent tuân theo coding convention   Project-level
-  của một dự án                       
-
-  Agent review bảo mật dùng chung     User-level hoặc project-level tùy
-  nhiều dự án                         yêu cầu
-
-  Agent cần được cả team sử dụng      Project-level và commit vào Git
-
-  Agent phục vụ workflow cá nhân      User-level
-  -----------------------------------------------------------------------
+| Nhu cầu | Scope nên chọn |
+| --- | --- |
+| Agent tuân theo coding convention của một dự án | Project-level |
+| Agent review bảo mật dùng chung nhiều dự án | User-level hoặc project-level tùy yêu cầu |
+| Agent cần được cả team sử dụng | Project-level và commit vào Git |
+| Agent phục vụ workflow cá nhân | User-level |
 
 ## 3.4. Cấu trúc file Subagent
 
@@ -405,52 +427,23 @@ quy tắc và cách trả kết quả.
 
 ## 3.5. Các trường cấu hình quan trọng
 
-  -----------------------------------------------------------------------
-  Field                               Ý nghĩa
-  ----------------------------------- -----------------------------------
-  `name`                              Tên định danh của subagent.
-
-  `description`                       Mô tả nhiệm vụ và tình huống nên sử
-                                      dụng agent. Đây là thông tin quan
-                                      trọng giúp Claude quyết định khi
-                                      nào cần delegate.
-
-  `tools`                             Danh sách công cụ được phép sử
-                                      dụng.
-
-  `disallowedTools`                   Danh sách công cụ bị loại khỏi
-                                      quyền truy cập kế thừa.
-
-  `model`                             Model sử dụng, ví dụ `sonnet`,
-                                      `opus`, `haiku` hoặc `inherit`.
-
-  `permissionMode`                    Chế độ quyền và phê duyệt thao tác.
-
-  `maxTurns`                          Giới hạn số lượt agentic turn.
-
-  `skills`                            Các skill được nạp vào subagent khi
-                                      khởi chạy.
-
-  `mcpServers`                        Khai báo hoặc tham chiếu MCP server
-                                      phù hợp.
-
-  `hooks`                             Hook gắn với vòng đời của subagent,
-                                      tùy phạm vi hỗ trợ.
-
-  `memory`                            Cấu hình bộ nhớ của subagent nếu
-                                      được hỗ trợ.
-
-  `background`                        Cấu hình cách chạy nền.
-
-  `effort`                            Mức effort của model nếu được hỗ
-                                      trợ.
-
-  `isolation`                         Cấu hình môi trường cô lập, ví dụ
-                                      worktree trong workflow hỗ trợ.
-
-  `color`                             Màu hiển thị trong giao diện quản
-                                      lý task.
-  -----------------------------------------------------------------------
+| Field | Ý nghĩa |
+| --- | --- |
+| `name` | Tên định danh của subagent. |
+| `description` | Mô tả nhiệm vụ và tình huống nên sử dụng agent. Đây là thông tin quan trọng giúp Claude quyết định khi nào cần delegate. |
+| `tools` | Danh sách công cụ được phép sử dụng. |
+| `disallowedTools` | Danh sách công cụ bị loại khỏi quyền truy cập kế thừa. |
+| `model` | Model sử dụng, ví dụ `sonnet`, `opus`, `haiku` hoặc `inherit`. |
+| `permissionMode` | Chế độ quyền và phê duyệt thao tác. |
+| `maxTurns` | Giới hạn số lượt agentic turn. |
+| `skills` | Các skill được nạp vào subagent khi khởi chạy. |
+| `mcpServers` | Khai báo hoặc tham chiếu MCP server phù hợp. |
+| `hooks` | Hook gắn với vòng đời của subagent, tùy phạm vi hỗ trợ. |
+| `memory` | Cấu hình bộ nhớ của subagent nếu được hỗ trợ. |
+| `background` | Cấu hình cách chạy nền. |
+| `effort` | Mức effort của model nếu được hỗ trợ. |
+| `isolation` | Cấu hình môi trường cô lập, ví dụ worktree trong workflow hỗ trợ. |
+| `color` | Màu hiển thị trong giao diện quản lý task. |
 
 Không phải mọi trường đều cần khai báo. Với một subagent cơ bản, `name`
 và `description` là hai trường bắt buộc quan trọng nhất; các trường còn
@@ -458,11 +451,18 @@ lại được thêm tùy use case và phiên bản.
 
 ### `name`
 
-Tên nên: - Ngắn gọn, dễ hiểu. - Dùng chữ thường và dấu gạch ngang. - Thể
-hiện đúng chuyên môn hoặc nhiệm vụ.
+Tên nên:
 
-Ví dụ: - `code-reviewer` - `security-auditor` - `api-researcher` -
-`documentation-writer`
+- Ngắn gọn, dễ hiểu.
+- Dùng chữ thường và dấu gạch ngang.
+- Thể hiện đúng chuyên môn hoặc nhiệm vụ.
+
+Ví dụ:
+
+- `code-reviewer`
+- `security-auditor`
+- `api-researcher`
+- `documentation-writer`
 
 ### `description`
 
@@ -483,8 +483,11 @@ description: Reviews changed code for correctness, security,
   when an independent review is needed.
 ```
 
-Một description tốt cần làm rõ: - Agent chuyên xử lý việc gì? - Khi nào
-nên sử dụng? - Loại đầu ra hoặc giá trị mà agent mang lại?
+Một description tốt cần làm rõ:
+
+- Agent chuyên xử lý việc gì?
+- Khi nào nên sử dụng?
+- Loại đầu ra hoặc giá trị mà agent mang lại?
 
 ### `tools`
 
@@ -505,10 +508,11 @@ Không nên cấp toàn bộ công cụ nếu nhiệm vụ chỉ cần đọc fi
 
 ### `model`
 
-Chọn model dựa trên độ phức tạp: - Model nhẹ hơn: tác vụ tìm kiếm, phân
-loại hoặc tổng hợp đơn giản. - Model mạnh hơn: phân tích sâu, review
-phức tạp hoặc nhiệm vụ cần suy luận nhiều. - `inherit`: kế thừa lựa chọn
-model theo cơ chế của phiên làm việc.
+Chọn model dựa trên độ phức tạp:
+
+- Model nhẹ hơn: tác vụ tìm kiếm, phân loại hoặc tổng hợp đơn giản.
+- Model mạnh hơn: phân tích sâu, review phức tạp hoặc nhiệm vụ cần suy luận nhiều.
+- `inherit`: kế thừa lựa chọn model theo cơ chế của phiên làm việc.
 
 Không nên mặc định mọi subagent đều cần model mạnh nhất. Hãy cân bằng
 chất lượng, tốc độ và chi phí.
@@ -521,12 +525,25 @@ dùng chế độ quyền rộng chỉ để tiết kiệm thao tác xác nhận
 
 ## 3.6. Kiểm tra sau khi tạo
 
-Sau khi tạo file: 1. Kiểm tra file nằm đúng thư mục. 2. Kiểm tra YAML
-frontmatter hợp lệ. 3. Kiểm tra `name` và `description`. 4. Kiểm tra
-quyền tool có đúng nhiệm vụ không. 5. Gọi thử subagent bằng một task
-thực tế. 6. Kiểm tra output có đúng format và có bằng chứng không. 7.
-Điều chỉnh system prompt nếu agent làm sai phạm vi hoặc trả kết quả
-thiếu.
+Sau khi tạo file:
+
+1. Kiểm tra file nằm đúng thư mục.
+2. Kiểm tra YAML frontmatter hợp lệ.
+3. Kiểm tra `name` và `description`.
+4. Kiểm tra quyền tool có đúng nhiệm vụ không.
+5. Gọi thử subagent bằng một task thực tế.
+6. Kiểm tra output có đúng format và có bằng chứng không.
+7. Điều chỉnh system prompt nếu agent làm sai phạm vi hoặc trả kết quả thiếu.
+
+## 3.7. Bổ sung từ bài học gốc
+
+- Hai cách tạo: **"Generate with Claude" (khuyến nghị)** hoặc cấu hình thủ công. Nhóm tool có thể chọn: read-only, edit, execution, MCP, other. Ví dụ: code reviewer không cần tool edit nhưng có thể giữ tool execution để xem các thay đổi đang chờ.
+- Model: **Haiku** (nhanh, nhẹ), **Sonnet** (cân bằng), **Opus** (phân tích phức tạp), **Inherit** (dùng model của hội thoại chính). `model` nhận alias, model ID đầy đủ hoặc `inherit`.
+- `color` dùng để phân biệt các subagent đang chạy trên giao diện (ví dụ `code-quality-reviewer` màu cyan).
+- Có thể gọi đích danh bằng cách nhờ Claude hoặc gõ `@agent-<name>`.
+- `description` phải nằm **trên một dòng** (dùng `\n` để xuống dòng) và có thể chứa ví dụ hội thoại. Thêm chữ **"proactively"** vào description để Claude tự giao việc mà không cần bạn yêu cầu.
+- Phần nội dung dưới frontmatter chính là **system prompt**: trọng tâm, cách phân tích, định dạng báo cáo.
+- Nếu subagent không được gọi: viết description cụ thể hơn, thêm tình huống kích hoạt và ví dụ.
 
 ------------------------------------------------------------------------
 
@@ -537,9 +554,12 @@ thiếu.
 Một subagent có thể được tạo và chạy thành công nhưng chưa chắc tạo ra
 kết quả đáng tin cậy.
 
-Bài học tập trung vào bốn pattern thiết kế: 1. Vai trò và phạm vi rõ
-ràng. 2. Structured output -- đầu ra có cấu trúc. 3. Obstacle reporting
--- báo cáo trở ngại. 4. Limited tool access -- giới hạn quyền công cụ.
+Bài học tập trung vào bốn pattern thiết kế:
+
+1. Vai trò và phạm vi rõ ràng.
+2. Structured output -- đầu ra có cấu trúc.
+3. Obstacle reporting -- báo cáo trở ngại.
+4. Limited tool access -- giới hạn quyền công cụ.
 
 Mục tiêu là biến subagent từ một agent chung chung thành một worker
 chuyên biệt, dễ dự đoán, có thể hoàn thành nhiệm vụ và bàn giao kết quả
@@ -549,9 +569,12 @@ rõ ràng.
 
 Mỗi subagent nên có một vai trò và phạm vi chuyên biệt.
 
-Ví dụ: - Code reviewer: tìm vấn đề trong code. - Researcher: tìm kiếm
-thông tin và cung cấp bằng chứng. - Documentation writer: viết tài liệu
-theo cấu trúc xác định. - Security auditor: đánh giá rủi ro bảo mật.
+Ví dụ:
+
+- Code reviewer: tìm vấn đề trong code.
+- Researcher: tìm kiếm thông tin và cung cấp bằng chứng.
+- Documentation writer: viết tài liệu theo cấu trúc xác định.
+- Security auditor: đánh giá rủi ro bảo mật.
 
 Không nên mô tả agent bằng những yêu cầu quá chung chung như:
 
@@ -564,18 +587,24 @@ Thay vào đó:
 > file. Ưu tiên các lỗi có thể khai thác và phải cung cấp vị trí cùng
 > bằng chứng cho từng phát hiện.
 
-Vai trò rõ ràng giúp: - Giảm phạm vi không cần thiết. - Giảm việc agent
-tự mở rộng nhiệm vụ. - Tăng tính nhất quán giữa các lần chạy. - Giúp
-agent chính chọn đúng subagent.
+Vai trò rõ ràng giúp:
+
+- Giảm phạm vi không cần thiết.
+- Giảm việc agent tự mở rộng nhiệm vụ.
+- Tăng tính nhất quán giữa các lần chạy.
+- Giúp agent chính chọn đúng subagent.
 
 ## 4.3. Pattern 2 -- Structured Output
 
 **Structured output** là việc quy định trước định dạng kết quả mà
 subagent phải trả về.
 
-Nếu không có format, mỗi lần subagent có thể trả kết quả theo một kiểu
-khác nhau: - Lúc thì đoạn văn dài. - Lúc thì bullet points. - Lúc thiếu
-đường dẫn file. - Lúc không phân biệt lỗi nghiêm trọng và vấn đề nhỏ.
+Nếu không có format, mỗi lần subagent có thể trả kết quả theo một kiểu khác nhau:
+
+- Lúc thì đoạn văn dài.
+- Lúc thì bullet points.
+- Lúc thiếu đường dẫn file.
+- Lúc không phân biệt lỗi nghiêm trọng và vấn đề nhỏ.
 
 Điều này làm agent chính mất thêm công sức đọc, kiểm tra và chuyển đổi
 kết quả.
@@ -631,11 +660,15 @@ với văn bản tự do.
 
 ## 4.4. Pattern 3 -- Obstacle Reporting
 
-Subagent không phải lúc nào cũng hoàn thành được toàn bộ nhiệm vụ. Có
-thể gặp: - File không tồn tại. - Không có quyền truy cập. - Thiếu
-dependency. - Lệnh thực thi thất bại. - Dữ liệu không đủ để kết luận. -
-Một phần code không thể kiểm tra. - Phát hiện mâu thuẫn giữa tài liệu và
-code.
+Subagent không phải lúc nào cũng hoàn thành được toàn bộ nhiệm vụ. Có thể gặp:
+
+- File không tồn tại.
+- Không có quyền truy cập.
+- Thiếu dependency.
+- Lệnh thực thi thất bại.
+- Dữ liệu không đủ để kết luận.
+- Một phần code không thể kiểm tra.
+- Phát hiện mâu thuẫn giữa tài liệu và code.
 
 Nếu không yêu cầu báo cáo trở ngại, subagent có thể chỉ trả về kết quả
 chung chung hoặc bỏ qua phần chưa hoàn thành. Agent chính sẽ không biết
@@ -669,9 +702,12 @@ Thêm một mục riêng trong output:
 - Next step: Start the database service and rerun integration tests.
 ```
 
-Điều này giúp agent chính: - Biết chính xác phần nào đã hoàn thành. -
-Không nhầm kết quả chưa kiểm chứng thành kết luận chắc chắn. - Tiếp tục
-xử lý đúng điểm bị chặn. - Tránh lặp lại những bước đã thất bại.
+Điều này giúp agent chính:
+
+- Biết chính xác phần nào đã hoàn thành.
+- Không nhầm kết quả chưa kiểm chứng thành kết luận chắc chắn.
+- Tiếp tục xử lý đúng điểm bị chặn.
+- Tránh lặp lại những bước đã thất bại.
 
 **Nguyên tắc:** Báo cáo trung thực những gì đã làm, chưa làm và không
 thể xác minh.
@@ -682,23 +718,13 @@ Không phải subagent nào cũng cần toàn bộ quyền truy cập của agen
 
 Ví dụ:
 
-  -----------------------------------------------------------------------
-  Loại Subagent                       Tool access phù hợp
-  ----------------------------------- -----------------------------------
-  Researcher                          Read, Glob, Grep
-
-  Code reviewer                       Read, Glob, Grep; có thể cần công
-                                      cụ thực thi phù hợp để kiểm tra
-
-  Documentation writer                Read và công cụ ghi file nếu được
-                                      giao tạo tài liệu
-
-  Code modifier                       Read, Edit, Write và các công cụ
-                                      cần thiết
-
-  Security auditor                    Ưu tiên quyền đọc và tìm kiếm; chỉ
-                                      cấp quyền bổ sung khi thực sự cần
-  -----------------------------------------------------------------------
+| Loại Subagent | Tool access phù hợp |
+| --- | --- |
+| Researcher | Read, Glob, Grep |
+| Code reviewer | Read, Glob, Grep; có thể cần công cụ thực thi phù hợp để kiểm tra |
+| Documentation writer | Read và công cụ ghi file nếu được giao tạo tài liệu |
+| Code modifier | Read, Edit, Write và các công cụ cần thiết |
+| Security auditor | Ưu tiên quyền đọc và tìm kiếm; chỉ cấp quyền bổ sung khi thực sự cần |
 
 ### Vì sao cần giới hạn tool?
 
@@ -723,26 +749,37 @@ Không cấp quyền ghi hoặc thực thi nếu nhiệm vụ không cần.
 Đây là nguyên tắc bảo mật: chỉ cấp quyền tối thiểu để hoàn thành nhiệm
 vụ.
 
-Ví dụ: - Nhiệm vụ chỉ đọc → không cấp quyền chỉnh sửa. - Nhiệm vụ chỉ
-tìm kiếm → không cần công cụ thực thi lệnh. - Nhiệm vụ viết tài liệu →
-cấp quyền ghi đúng phạm vi cần thiết. - Nhiệm vụ triển khai code → chỉ
-cấp các quyền cần thiết và giữ cơ chế kiểm soát phù hợp.
+Ví dụ:
+
+- Nhiệm vụ chỉ đọc → không cấp quyền chỉnh sửa.
+- Nhiệm vụ chỉ tìm kiếm → không cần công cụ thực thi lệnh.
+- Nhiệm vụ viết tài liệu → cấp quyền ghi đúng phạm vi cần thiết.
+- Nhiệm vụ triển khai code → chỉ cấp các quyền cần thiết và giữ cơ chế kiểm soát phù hợp.
 
 ## 4.6. Kết hợp bốn pattern
 
 Một subagent hiệu quả cần kết hợp cả bốn yếu tố:
 
-  Pattern               Câu hỏi cần trả lời
-  --------------------- ----------------------------------------------
-  Clear role            Agent chịu trách nhiệm về việc gì?
-  Structured output     Kết quả phải được trả về theo định dạng nào?
-  Obstacle reporting    Nếu gặp vấn đề, agent phải báo cáo ra sao?
-  Limited tool access   Agent thực sự cần những công cụ nào?
-
+| Pattern | Câu hỏi cần trả lời |
+| --- | --- |
+| Clear role | Agent chịu trách nhiệm về việc gì? |
+| Structured output | Kết quả phải được trả về theo định dạng nào? |
+| Obstacle reporting | Nếu gặp vấn đề, agent phải báo cáo ra sao? |
+| Limited tool access | Agent thực sự cần những công cụ nào? |
 Có thể ghi nhớ bằng công thức:
 
 > **Effective Subagent = Clear Role + Structured Output + Obstacle
 > Reporting + Least Privilege**
+
+## 4.7. Bổ sung từ bài học gốc
+
+- Subagent cấu hình kém thường lan man, chạy quá lâu hoặc trả kết quả không dùng được. Bài nêu bốn cách khắc phục: **description tốt, output format rõ, báo cáo trở ngại, giới hạn tool**.
+- **Description quan trọng hơn bạn nghĩ:** tên và description của mọi subagent được đưa vào system prompt của agent chính. Description vừa quyết định *khi nào* agent chính gọi subagent, vừa định hình **prompt đầu vào** mà agent chính viết cho nó. Ví dụ:
+  - Thêm câu "You must tell the agent precisely which files you want it to review" thì agent chính sẽ liệt kê đúng các file cần review, thay vì chỉ nói chung chung "dùng git diff".
+  - Thêm "return sources that can be cited" vào subagent tìm kiếm web thì agent chính sẽ yêu cầu nguồn trích dẫn được.
+- **Output format là cải tiến quan trọng nhất:** nó tạo ra "điểm dừng tự nhiên". Khi điền xong mọi mục, subagent biết mình đã xong. Không có format, subagent khó tự đánh giá khi nào đủ và chạy lâu hơn nhiều. Ví dụ format review: Summary, Critical Issues, Major Issues, Minor Issues, Recommendations, Approval Status.
+- Thêm mục **"Obstacles Encountered"** để subagent báo các workaround, cấu hình đặc biệt, flag, lỗi dependency. Nếu không, luồng chính phải tự khám phá lại, tốn thời gian và token.
+- Tool tối thiểu: researcher chỉ cần `Glob`, `Grep`, `Read`; code reviewer cần `Bash` (để chạy `git diff`) nhưng không cần `Edit`/`Write`; agent sửa code mới cần `Edit`/`Write`.
 
 ------------------------------------------------------------------------
 
@@ -750,10 +787,12 @@ Có thể ghi nhớ bằng công thức:
 
 ## 5.1. Mục tiêu bài học
 
-Biết cách quyết định: - Khi nào nên delegate cho subagent. - Khi nào nên
-giữ nhiệm vụ trong main agent. - Khi nào có thể chạy nhiều subagent song
-song. - Những anti-pattern nào thường khiến việc sử dụng subagent kém
-hiệu quả.
+Biết cách quyết định:
+
+- Khi nào nên delegate cho subagent.
+- Khi nào nên giữ nhiệm vụ trong main agent.
+- Khi nào có thể chạy nhiều subagent song song.
+- Những anti-pattern nào thường khiến việc sử dụng subagent kém hiệu quả.
 
 ## 5.2. Quy tắc quyết định quan trọng
 
@@ -770,16 +809,20 @@ chỉnh liên tục thì nên giữ nhiệm vụ trong luồng chính.
 
 Ví dụ:
 
-**Nên dùng subagent:** - Tìm hiểu cấu trúc authentication trong
-codebase. - Review độc lập một phần code. - Khảo sát các dependency đang
-sử dụng. - Tìm các vị trí có nguy cơ lộ secret. - Tạo bản tổng hợp tài
-liệu từ một tập file.
+**Nên dùng subagent:**
 
-**Nên giữ trong main agent:** - Debug một lỗi mà mỗi phát hiện sẽ quyết
-định bước tiếp theo. - Thực hiện chuỗi thay đổi phụ thuộc chặt chẽ vào
-kết quả từng bước. - Làm việc cần người điều phối liên tục đánh giá và
-thay đổi hướng đi. - Nhiệm vụ nhỏ đến mức việc khởi chạy subagent không
-đáng công.
+- Tìm hiểu cấu trúc authentication trong codebase.
+- Review độc lập một phần code.
+- Khảo sát các dependency đang sử dụng.
+- Tìm các vị trí có nguy cơ lộ secret.
+- Tạo bản tổng hợp tài liệu từ một tập file.
+
+**Nên giữ trong main agent:**
+
+- Debug một lỗi mà mỗi phát hiện sẽ quyết định bước tiếp theo.
+- Thực hiện chuỗi thay đổi phụ thuộc chặt chẽ vào kết quả từng bước.
+- Làm việc cần người điều phối liên tục đánh giá và thay đổi hướng đi.
+- Nhiệm vụ nhỏ đến mức việc khởi chạy subagent không đáng công.
 
 ## 5.3. Use Case 1 -- Research and Exploration
 
@@ -797,8 +840,12 @@ Main agent giao cho researcher:
 Subagent có thể đọc nhiều file, tìm kiếm các symbol và tổng hợp phát
 hiện trong context riêng.
 
-Main agent chỉ nhận: - Các file quan trọng. - Luồng xử lý. - Các phát
-hiện. - Những điểm cần điều tra thêm.
+Main agent chỉ nhận:
+
+- Các file quan trọng.
+- Luồng xử lý.
+- Các phát hiện.
+- Những điểm cần điều tra thêm.
 
 Lợi ích: Không cần đưa toàn bộ output tìm kiếm vào context chính.
 
@@ -806,17 +853,25 @@ Lợi ích: Không cần đưa toàn bộ output tìm kiếm vào context chính
 
 Subagent rất hữu ích khi cần review code độc lập.
 
-Khi main agent vừa viết code, nó đã có nhiều context về: - Ý định ban
-đầu. - Những giả định đã sử dụng. - Các quyết định thiết kế. - Những
-thay đổi đã thực hiện.
+Khi main agent vừa viết code, nó đã có nhiều context về:
+
+- Ý định ban đầu.
+- Những giả định đã sử dụng.
+- Các quyết định thiết kế.
+- Những thay đổi đã thực hiện.
 
 Một reviewer độc lập có thể tiếp cận code mà không bị ảnh hưởng bởi toàn
 bộ quá trình tạo ra nó. Điều này giúp tìm ra các vấn đề mà người viết có
 thể bỏ qua.
 
-Có thể tạo reviewer chuyên kiểm tra: - Logic và correctness. -
-Security. - Performance. - Error handling. - Maintainability. -
-Regression risk.
+Có thể tạo reviewer chuyên kiểm tra:
+
+- Logic và correctness.
+- Security.
+- Performance.
+- Error handling.
+- Maintainability.
+- Regression risk.
 
 **Lưu ý:** Review độc lập không đồng nghĩa với review luôn đúng. Agent
 chính vẫn cần xác minh phát hiện dựa trên code và bằng chứng.
@@ -827,16 +882,25 @@ Một số công việc cần cách hành xử khác với agent lập trình m�
 
 Ví dụ:
 
-**Documentation agent** - Tập trung viết tài liệu. - Tuân thủ cấu trúc
-README hoặc API reference. - Không tự ý thay đổi code. - Kiểm tra sự
-nhất quán giữa tài liệu và source.
+**Documentation agent**
 
-**Security auditor** - Sử dụng checklist bảo mật. - Phân loại mức độ
-nghiêm trọng. - Yêu cầu bằng chứng cho mỗi phát hiện. - Không đưa ra kết
-luận thiếu căn cứ.
+- Tập trung viết tài liệu.
+- Tuân thủ cấu trúc README hoặc API reference.
+- Không tự ý thay đổi code.
+- Kiểm tra sự nhất quán giữa tài liệu và source.
 
-**Test planner** - Phân tích yêu cầu và các trường hợp biên. - Đề xuất
-test cases. - Phân loại unit, integration và end-to-end tests.
+**Security auditor**
+
+- Sử dụng checklist bảo mật.
+- Phân loại mức độ nghiêm trọng.
+- Yêu cầu bằng chứng cho mỗi phát hiện.
+- Không đưa ra kết luận thiếu căn cứ.
+
+**Test planner**
+
+- Phân tích yêu cầu và các trường hợp biên.
+- Đề xuất test cases.
+- Phân loại unit, integration và end-to-end tests.
 
 Custom system prompt giúp chuẩn hóa quy trình chuyên biệt thay vì phải
 nhắc lại trong mỗi prompt.
@@ -845,8 +909,11 @@ nhắc lại trong mỗi prompt.
 
 ### Trường hợp 1: Task quá nhỏ
 
-Ví dụ: - Đổi tên một biến. - Giải thích một đoạn code ngắn. - Sửa một
-lỗi cú pháp đơn giản.
+Ví dụ:
+
+- Đổi tên một biến.
+- Giải thích một đoạn code ngắn.
+- Sửa một lỗi cú pháp đơn giản.
 
 Khởi chạy subagent có thể tạo thêm chi phí điều phối mà không đem lại
 lợi ích tương xứng.
@@ -887,9 +954,13 @@ Một subagent chỉ trả về:
 
 > Tests failed.
 
-là chưa đủ nếu agent chính cần biết: - Test nào thất bại? - Stack trace
-ra sao? - Expected và actual khác nhau ở đâu? - Có lỗi môi trường hay
-lỗi code? - Có bao nhiêu test pass/fail?
+là chưa đủ nếu agent chính cần biết:
+
+- Test nào thất bại?
+- Stack trace ra sao?
+- Expected và actual khác nhau ở đâu?
+- Có lỗi môi trường hay lỗi code?
+- Có bao nhiêu test pass/fail?
 
 Nếu toàn bộ output test là dữ liệu quan trọng để debug, nên giữ quá
 trình chạy và phân tích trong luồng chính hoặc yêu cầu subagent trả lại
@@ -922,8 +993,12 @@ Ví dụ khi audit một ứng dụng:
                 Final Report
 ```
 
-Các nhiệm vụ phù hợp để chạy song song: - Kiểm tra bảo mật. - Khảo sát
-API. - Đánh giá hiệu năng. - Kiểm tra tài liệu.
+Các nhiệm vụ phù hợp để chạy song song:
+
+- Kiểm tra bảo mật.
+- Khảo sát API.
+- Đánh giá hiệu năng.
+- Kiểm tra tài liệu.
 
 Điều kiện quan trọng: các nhiệm vụ phải tương đối độc lập và có thể thực
 hiện mà không cần chờ kết quả của nhau.
@@ -946,6 +1021,20 @@ hiện mà không cần chờ kết quả của nhau.
 Vì vậy, cần xác định rõ phạm vi và output của từng agent trước khi chạy
 song song.
 
+## 5.8. Bổ sung từ bài học gốc
+
+- **Câu hỏi quyết định:** phần việc trung gian có quan trọng với luồng chính không? Nếu chỉ kết quả cuối mới quan trọng thì nên giao cho subagent.
+- Ví dụ research: subagent trả về câu ngắn gọn như "JWT validation nằm ở `middleware/auth.js` dòng 42".
+- Code review: luồng chính đã cùng viết tính năng nên khó nhìn code bằng "con mắt mới". Subagent review chạy `git diff` và đọc file đã sửa mà không mang theo lịch sử viết code. Có thể đưa tiêu chuẩn review của team vào system prompt của nó.
+- Custom system prompt hữu ích khi phong cách mặc định (ngắn gọn, thiên về code) không phù hợp, ví dụ:
+  - Subagent **copywriting** có chỉ dẫn riêng về giọng văn và đối tượng, dùng cho landing page hoặc email.
+  - Subagent **styling** đọc file design system (màu, spacing, component) trước khi viết CSS.
+- Ba anti-pattern bài học nêu rõ:
+  1. **Persona chuyên gia** kiểu "You are a Python expert": không thêm gì, vì Claude vốn đã có kiến thức đó.
+  2. **Pipeline tuần tự phụ thuộc nhau** (reproduce → debug → fix): mất thông tin ở mỗi lần bàn giao.
+  3. **Subagent chạy test**: bản tóm tắt "tests failed" che mất chi tiết cần thiết, buộc phải viết thêm script debug. Đây là cấu hình cho **kết quả tệ nhất** trong các thử nghiệm.
+- Việc che giấu quá trình và nén kết quả chỉ đáng khi subagent làm được điều mà luồng chính không làm được.
+
 ------------------------------------------------------------------------
 
 # 6. Quy trình thiết kế một hệ thống Subagents
@@ -966,29 +1055,21 @@ Ví dụ:
 
 Tách thành các phần việc có phạm vi riêng:
 
-  -----------------------------------------------------------------------
-  Subagent                Nhiệm vụ                Output
-  ----------------------- ----------------------- -----------------------
-  Security auditor        Kiểm tra                Security findings
-                          authentication,         
-                          authorization, input    
-                          validation              
-
-  Performance analyst     Tìm bottleneck và truy  Performance report
-                          vấn kém hiệu quả        
-
-  Code reviewer           Kiểm tra logic và       Code review report
-                          maintainability         
-
-  Documentation analyst   Kiểm tra tài liệu và    Documentation report
-                          mức độ đồng bộ          
-  -----------------------------------------------------------------------
+| Subagent | Nhiệm vụ | Output |
+| --- | --- | --- |
+| Security auditor | Kiểm tra authentication, authorization, input validation | Security findings |
+| Performance analyst | Tìm bottleneck và truy vấn kém hiệu quả | Performance report |
+| Code reviewer | Kiểm tra logic và maintainability | Code review report |
+| Documentation analyst | Kiểm tra tài liệu và mức độ đồng bộ | Documentation report |
 
 ## Bước 3 -- Kiểm tra tính độc lập
 
-Tự hỏi: - Các nhiệm vụ có thể chạy đồng thời không? - Có nhiệm vụ nào
-phải chờ kết quả của nhiệm vụ khác không? - Có hai agent cùng chỉnh sửa
-một file không? - Main agent có cần theo dõi quá trình thực hiện không?
+Tự hỏi:
+
+- Các nhiệm vụ có thể chạy đồng thời không?
+- Có nhiệm vụ nào phải chờ kết quả của nhiệm vụ khác không?
+- Có hai agent cùng chỉnh sửa một file không?
+- Main agent có cần theo dõi quá trình thực hiện không?
 
 Nếu các nhiệm vụ phụ thuộc nhiều vào nhau, hãy giữ chúng trong một
 workflow liên tục hoặc chỉ delegate phần khảo sát độc lập.
@@ -1008,15 +1089,25 @@ Với mỗi agent, xác định:
 
 ## Bước 5 -- Giao nhiệm vụ rõ ràng
 
-Mỗi prompt giao việc nên có: - Mục tiêu. - Phạm vi. - Context cần
-thiết. - Giới hạn. - Output format. - Điều kiện dừng hoặc báo cáo trở
-ngại.
+Mỗi prompt giao việc nên có:
+
+- Mục tiêu.
+- Phạm vi.
+- Context cần thiết.
+- Giới hạn.
+- Output format.
+- Điều kiện dừng hoặc báo cáo trở ngại.
 
 ## Bước 6 -- Tổng hợp và xác minh
 
-Main agent cần: - Đọc kết quả từ từng subagent. - So sánh các phát
-hiện. - Loại bỏ trùng lặp. - Xác minh các kết luận quan trọng. - Làm rõ
-những điểm mâu thuẫn. - Đưa ra kết luận tổng thể.
+Main agent cần:
+
+- Đọc kết quả từ từng subagent.
+- So sánh các phát hiện.
+- Loại bỏ trùng lặp.
+- Xác minh các kết luận quan trọng.
+- Làm rõ những điểm mâu thuẫn.
+- Đưa ra kết luận tổng thể.
 
 Không nên coi mọi kết quả từ subagent là sự thật đã được xác minh.
 
@@ -1192,8 +1283,12 @@ không dùng được.
 
 **Vấn đề:** Chia một nhiệm vụ nhỏ thành nhiều agent không cần thiết.
 
-**Hậu quả:** - Tăng chi phí điều phối. - Tăng lượng output phải tổng
-hợp. - Dễ trùng lặp công việc. - Khó kiểm soát kết quả.
+**Hậu quả:**
+
+- Tăng chi phí điều phối.
+- Tăng lượng output phải tổng hợp.
+- Dễ trùng lặp công việc.
+- Khó kiểm soát kết quả.
 
 **Cách khắc phục:** Chỉ tạo agent khi có chuyên môn hoặc phạm vi độc lập
 thực sự cần thiết.
@@ -1312,20 +1407,19 @@ Sử dụng checklist này trước khi đưa một subagent vào workflow thự
 
 ## 10.2. Bảng ghi nhớ nhanh
 
-  Khái niệm            Ghi nhớ
-  -------------------- --------------------------------------------
-  Subagent             Agent phụ chạy trong context riêng
-  Main agent           Điều phối và tổng hợp kết quả
-  Delegation           Giao nhiệm vụ cho agent phụ
-  Context isolation    Tách ngữ cảnh công việc
-  Custom subagent      Agent chuyên biệt do người dùng định nghĩa
-  YAML frontmatter     Metadata và cấu hình agent
-  Description          Giúp định tuyến nhiệm vụ
-  Structured output    Chuẩn hóa kết quả
-  Obstacle reporting   Báo cáo trở ngại và giới hạn
-  Least privilege      Chỉ cấp quyền cần thiết
-  Parallel execution   Chạy đồng thời các nhiệm vụ độc lập
-
+| Khái niệm | Ghi nhớ |
+| --- | --- |
+| Subagent | Agent phụ chạy trong context riêng |
+| Main agent | Điều phối và tổng hợp kết quả |
+| Delegation | Giao nhiệm vụ cho agent phụ |
+| Context isolation | Tách ngữ cảnh công việc |
+| Custom subagent | Agent chuyên biệt do người dùng định nghĩa |
+| YAML frontmatter | Metadata và cấu hình agent |
+| Description | Giúp định tuyến nhiệm vụ |
+| Structured output | Chuẩn hóa kết quả |
+| Obstacle reporting | Báo cáo trở ngại và giới hạn |
+| Least privilege | Chỉ cấp quyền cần thiết |
+| Parallel execution | Chạy đồng thời các nhiệm vụ độc lập |
 ## 10.3. Câu hỏi tự kiểm tra
 
 **Câu 1.** Subagent khác main agent ở điểm nào?

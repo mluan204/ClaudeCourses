@@ -67,6 +67,13 @@ kết quả và duy trì quyền quyết định.
 Đây không nhất thiết là ba cấp độ phải lần lượt đạt được. Chọn cách phù
 hợp với nhiệm vụ, rủi ro và mức độ kiểm soát cần thiết.
 
+## 1.3. Bổ sung từ bài học gốc
+
+- Khóa học tập trung vào **sự cộng tác giữa người và AI**, không chỉ kiến thức công nghệ. Mục tiêu là xây kỹ năng bền vững, vẫn đúng khi AI thay đổi, chứ không phải "mẹo vặt" nhất thời.
+- AI Fluency là sử dụng AI một cách **hiệu quả (effective), hiệu suất (efficient), có đạo đức (ethical) và an toàn (safe)**.
+- Có thể thực hành với bất kỳ mô hình ngôn ngữ nào. Ví dụ trong khóa dùng Claude nhưng **không cần gói trả phí**.
+- **Ba hình thức tương tác** và **bốn năng lực 4D** là hai trục độc lập: **cả bốn D đều áp dụng trong cả ba hình thức** Automation, Augmentation và Agency.
+
 ------------------------------------------------------------------------
 
 # 2. Khung năng lực AI Fluency 4D
@@ -74,23 +81,12 @@ hợp với nhiệm vụ, rủi ro và mức độ kiểm soát cần thiết.
 4D là khung năng lực cốt lõi của khóa học. Bốn năng lực liên kết và bổ
 trợ cho nhau.
 
-  -----------------------------------------------------------------------
-  Năng lực                Câu hỏi chính           Mục đích
-  ----------------------- ----------------------- -----------------------
-  **Delegation**          Nên giao việc gì cho    Chọn nhiệm vụ, công cụ
-                          AI?                     và cách phân công phù
-                                                  hợp
-
-  **Description**         Cần diễn đạt điều gì để Mô tả mục tiêu, bối
-                          AI hiểu đúng?           cảnh, đầu ra và quy
-                                                  trình
-
-  **Discernment**         Kết quả và cách làm có  Đánh giá, kiểm chứng và
-                          đạt yêu cầu không?      phát hiện thiếu sót
-
-  **Diligence**           Việc sử dụng AI có      Bảo đảm tính minh bạch,
-                          trách nhiệm không?      an toàn và trách nhiệm
-  -----------------------------------------------------------------------
+| Năng lực | Câu hỏi chính | Mục đích |
+| --- | --- | --- |
+| **Delegation** | Nên giao việc gì cho AI? | Chọn nhiệm vụ, công cụ và cách phân công phù hợp |
+| **Description** | Cần diễn đạt điều gì để AI hiểu đúng? | Mô tả mục tiêu, bối cảnh, đầu ra và quy trình |
+| **Discernment** | Kết quả và cách làm có đạt yêu cầu không? | Đánh giá, kiểm chứng và phát hiện thiếu sót |
+| **Diligence** | Việc sử dụng AI có trách nhiệm không? | Bảo đảm tính minh bạch, an toàn và trách nhiệm |
 
 ## 2.1. Cách ghi nhớ 4D
 
@@ -102,6 +98,11 @@ trợ cho nhau.
 Chỉ giỏi một năng lực là chưa đủ. Prompt tốt không bù được việc giao sai
 nhiệm vụ; câu trả lời trôi chảy không đồng nghĩa với chính xác; kết quả
 tốt cũng không hợp thức hóa việc sử dụng dữ liệu trái phép.
+
+## 2.2. Bổ sung từ bài học gốc
+
+- Bài học minh họa 4D qua ba ví dụ: viết **email marketing**, **phân tích dữ liệu nghiên cứu** và **thiết kế nhân vật truyện**. Mỗi ví dụ được phân tích theo đủ bốn D.
+- Bài tập phản tư: tự chấm mức tự tin của mình với từng D, nhớ lại một lần tương tác với AI gần đây, và xác định kỹ năng cần rèn thêm.
 
 ------------------------------------------------------------------------
 
@@ -136,6 +137,12 @@ sai.
 **Điểm cần nhớ:** Không nên coi LLM là kho dữ kiện tuyệt đối chính xác.
 Khi nhiệm vụ đòi hỏi dữ liệu thực tế, hiện hành hoặc có hậu quả cao, cần
 có nguồn đáng tin cậy và quy trình xác minh.
+
+## 3.3. Bổ sung từ bài học gốc
+
+- AI tạo sinh **tạo ra nội dung mới**, khác với AI chỉ phân tích dữ liệu sẵn có.
+- LLM trở nên khả thi nhờ ba yếu tố: **kiến trúc transformer**, **lượng dữ liệu số khổng lồ** và **sức mạnh tính toán** lớn.
+- Bài học còn nêu khái niệm **context window** và **năng lực nổi trội (emergent capabilities)**: những khả năng xuất hiện khi mô hình đủ lớn mà không được huấn luyện trực tiếp.
 
 ------------------------------------------------------------------------
 
@@ -180,6 +187,12 @@ có nguồn đáng tin cậy và quy trình xác minh.
 5.  Tăng mức xác minh theo mức độ rủi ro của quyết định.
 6.  Không đánh đồng sự tự tin, trôi chảy với tính chính xác.
 
+## 4.4. Bổ sung từ bài học gốc
+
+- Điểm mạnh hiện tại: linh hoạt với nhiều loại tác vụ ngôn ngữ, hội thoại tự nhiên, **chuyển đổi tác vụ mà không cần huấn luyện thêm**, và kết nối với công cụ bên ngoài.
+- Bốn giới hạn chính: **knowledge cutoff**, **hallucination**, **giới hạn context window** và **suy luận phức tạp vẫn còn khó**.
+- Lĩnh vực thay đổi rất nhanh, nên các khả năng và giới hạn cũng thay đổi theo. Hiệu quả nhất là kết hợp AI với con người, người đóng góp tư duy phản biện, phán đoán, sáng tạo và giám sát đạo đức.
+
 ------------------------------------------------------------------------
 
 # 5. D1 -- Delegation: Giao việc đúng cách
@@ -189,7 +202,7 @@ nào và phân chia công việc ra sao** giữa AI với con người.
 
 ## 5.1. Ba thành phần của Delegation
 
-### 5.1. Problem Awareness -- Nhận thức vấn đề
+### 5.1.1. Problem Awareness -- Nhận thức vấn đề
 
 Hiểu mục tiêu, vấn đề cần giải quyết, tiêu chí thành công, ràng buộc và
 hậu quả nếu làm sai.
@@ -197,7 +210,7 @@ hậu quả nếu làm sai.
 Ví dụ: Trước khi yêu cầu phân tích doanh thu, xác định cần phân tích
 theo tháng, sản phẩm, khách hàng hay khu vực.
 
-### 5.2. Platform Awareness -- Nhận thức về nền tảng
+### 5.1.2. Platform Awareness -- Nhận thức về nền tảng
 
 Hiểu khả năng và giới hạn của công cụ AI đang dùng: đọc tệp, xử lý bảng
 tính, tìm kiếm web, chạy mã, giữ ngữ cảnh, quyền riêng tư và quyền truy
@@ -206,7 +219,7 @@ cập.
 Ví dụ: Với dữ liệu Excel lớn, chọn công cụ có khả năng đọc và phân tích
 bảng tính thay vì giả định mọi chatbot đều có thể truy cập tệp.
 
-### 5.3. Task Delegation -- Phân công nhiệm vụ
+### 5.1.3. Task Delegation -- Phân công nhiệm vụ
 
 Phân chia nhiệm vụ dựa trên năng lực của AI và con người. AI có thể làm
 nháp, phân loại hoặc tổng hợp; con người giữ vai trò đặt mục tiêu, đưa
@@ -223,26 +236,23 @@ ra phán đoán chuyên môn, xác minh và quyết định ở những khâu c�
 
 ## 5.3. Ví dụ phân công cho dự án báo cáo
 
-  -----------------------------------------------------------------------
-  Công việc                           Phân công gợi ý
-  ----------------------------------- -----------------------------------
-  Xác định mục tiêu, câu hỏi nghiên   Con người quyết định
-  cứu                                 
-
-  Tổng hợp tài liệu                   AI hỗ trợ; con người kiểm tra nguồn
-
-  Phân loại và so sánh dữ liệu        Phối hợp
-
-  Viết bản nháp                       AI làm theo tiêu chí rõ ràng
-
-  Xác minh số liệu và kết luận        Con người chịu trách nhiệm, có thể
-                                      dùng AI hỗ trợ
-
-  Duyệt và nộp báo cáo                Con người quyết định
-  -----------------------------------------------------------------------
+| Công việc | Phân công gợi ý |
+| --- | --- |
+| Xác định mục tiêu, câu hỏi nghiên cứu | Con người quyết định |
+| Tổng hợp tài liệu | AI hỗ trợ; con người kiểm tra nguồn |
+| Phân loại và so sánh dữ liệu | Phối hợp |
+| Viết bản nháp | AI làm theo tiêu chí rõ ràng |
+| Xác minh số liệu và kết luận | Con người chịu trách nhiệm, có thể dùng AI hỗ trợ |
+| Duyệt và nộp báo cáo | Con người quyết định |
 
 Không phải nhiệm vụ nào cũng nên tự động hóa hoàn toàn. Hãy giữ quyền
 kiểm soát tương xứng với độ nhạy cảm và hậu quả của nhiệm vụ.
+
+## 5.4. Bổ sung từ bài học gốc
+
+- Delegation là quyết định **việc gì mình tự làm, việc gì làm cùng AI, việc gì để AI làm độc lập**. Mục tiêu là tìm sự phối hợp người–AI tốt nhất cho từng nhiệm vụ, **không phải tự động hóa mọi thứ**.
+- Delegation tốt cần cả **chuyên môn lĩnh vực** lẫn hiểu biết về khả năng của AI.
+- Bài tập: chọn một việc nhỏ (soạn email, dàn ý bài thuyết trình) và cùng Claude lập kế hoạch phân công bằng cách trả lời: Kết quả tốt trông như thế nào? Cần làm những việc gì? Phần nào cần chuyên môn, sáng tạo hoặc phán đoán của con người?
 
 ------------------------------------------------------------------------
 
@@ -277,6 +287,19 @@ lập kế hoạch, phân công, thực hiện và đánh giá.
 Một dự án có nhiều bước tạo cơ hội luyện đủ bốn năng lực 4D, thay vì chỉ
 thực hành viết prompt đơn lẻ.
 
+## 6.3. Bổ sung từ bài học gốc — dự án xuyên suốt khóa học
+
+- Chọn một dự án **đủ lớn để gồm nhiều loại công việc**, làm được trong khoảng **1 giờ** và thực sự khiến bạn hứng thú. Bốn nhóm gợi ý:
+  - **Giao tiếp:** bài thuyết trình, bài viết giải thích, đề xuất hoặc pitch, tiểu sử kèm tài liệu hỗ trợ.
+  - **Nghiên cứu:** tóm tắt công nghệ mới, tìm quy luật trong dataset, so sánh sản phẩm hoặc phương pháp, tìm hiểu lịch sử.
+  - **Sáng tạo:** dàn ý truyện ngắn, cấu trúc website kèm nội dung, ý tưởng sản phẩm hoặc dịch vụ.
+  - **Học tập:** kế hoạch học một kỹ năng, bộ tài liệu theo chủ đề, hướng dẫn quy trình, tài liệu ôn tập.
+- Các bước:
+  - Nhờ Claude **đặt câu hỏi** cho đến khi bạn xác định rõ thế nào là thành công.
+  - Chia thành các nhiệm vụ lớn, với mỗi nhiệm vụ đánh giá kỹ năng cần có, thế mạnh của người, thế mạnh của AI và chỗ cần phối hợp.
+  - Lưu lại kế hoạch. Bạn sẽ dùng nó ở các bài Description, Discernment và Diligence.
+- Khi trao đổi, hãy chất vấn giả định và yêu cầu làm rõ, thay vì chỉ trao đổi những câu ngắn.
+
 ------------------------------------------------------------------------
 
 # 7. D2 -- Description: Diễn đạt yêu cầu rõ ràng
@@ -286,7 +309,7 @@ thể hỗ trợ đúng hướng.
 
 ## 7.1. Ba thành phần của Description
 
-### 7.1. Product Description -- Mô tả đầu ra
+### 7.1.1. Product Description -- Mô tả đầu ra
 
 Nêu rõ **AI cần tạo ra cái gì**:
 
@@ -300,7 +323,7 @@ Ví dụ: "Viết báo cáo 1.500 từ cho giảng viên, gồm bối cảnh, ph
 nhận xét và kết luận; dùng văn phong học thuật, phân biệt dữ kiện với
 nhận định."
 
-### 7.2. Process Description -- Mô tả quy trình
+### 7.1.2. Process Description -- Mô tả quy trình
 
 Nêu rõ **AI nên làm việc như thế nào**:
 
@@ -313,7 +336,7 @@ Nêu rõ **AI nên làm việc như thế nào**:
 Ví dụ: "Đọc dữ liệu trước, xác định xu hướng, đối chiếu nguồn, trình bày
 kết quả rồi mới đưa ra nhận xét."
 
-### 7.3. Performance Description -- Mô tả cách tương tác
+### 7.1.3. Performance Description -- Mô tả cách tương tác
 
 Nêu rõ **AI nên giao tiếp và phối hợp như thế nào**:
 
@@ -341,6 +364,12 @@ Một yêu cầu tốt thường làm rõ:
 
 Không phải prompt nào cũng cần đủ bảy mục. Hãy thêm thông tin tương xứng
 với độ phức tạp của nhiệm vụ.
+
+## 7.3. Bổ sung từ bài học gốc
+
+- Description không chỉ là viết prompt mà là **tạo môi trường cộng tác**. AI không đọc được suy nghĩ của bạn, nên hãy coi nó là **đối tác tương tác**, không phải cơ sở dữ liệu hay "máy bán hàng tự động".
+- **Performance Description** gồm các lựa chọn như ngắn gọn hay chi tiết, phản biện hay hỗ trợ.
+- Bài tập **"Bad Prompt Makeover"**: lấy một prompt kém, viết lại theo ba loại mô tả (Product, Process, Performance), xin góp ý, rồi đổi vai cho nhau.
 
 ------------------------------------------------------------------------
 
@@ -426,6 +455,11 @@ Nếu chưa biết bắt đầu thế nào, yêu cầu AI:
 thông tin để AI hiểu mục tiêu, cách làm và tiêu chí thành công.
 Prompting cũng là quá trình lặp: thử, đánh giá, sửa và thử lại.
 
+## 8.8. Bổ sung từ bài học gốc
+
+- Bài học gọi kỹ thuật "nhờ AI cải thiện prompt" là **"vũ khí bí mật" (secret weapon)**.
+- Ngoài sáu kỹ thuật, bài nhấn mạnh việc **prompt lặp (iterative prompting)** dựa trên kết quả, và các mẫu prompt thành công thường có: tổng quan nhiệm vụ, đặc tả định dạng, ràng buộc rõ ràng và bối cảnh liên quan.
+
 ------------------------------------------------------------------------
 
 # 9. D3 -- Discernment: Đánh giá và phán đoán
@@ -436,7 +470,7 @@ ra đúng.
 
 ## 9.1. Ba thành phần của Discernment
 
-### 9.1. Product Discernment -- Đánh giá đầu ra
+### 9.1.1. Product Discernment -- Đánh giá đầu ra
 
 Kiểm tra sản phẩm cuối cùng:
 
@@ -446,7 +480,7 @@ Kiểm tra sản phẩm cuối cùng:
 -   Nội dung có đầy đủ, rõ ràng và phù hợp đối tượng không?
 -   Có đáp ứng định dạng và các ràng buộc không?
 
-### 9.2. Process Discernment -- Đánh giá quy trình
+### 9.1.2. Process Discernment -- Đánh giá quy trình
 
 Kiểm tra cách AI tiếp cận nhiệm vụ:
 
@@ -456,7 +490,7 @@ Kiểm tra cách AI tiếp cận nhiệm vụ:
 -   Phương pháp có phù hợp với câu hỏi và dữ liệu không?
 -   Có bước nào cần kiểm tra độc lập không?
 
-### 9.3. Performance Discernment -- Đánh giá cách tương tác
+### 9.1.3. Performance Discernment -- Đánh giá cách tương tác
 
 Kiểm tra AI có phối hợp theo cách mong muốn không:
 
@@ -477,6 +511,16 @@ Kiểm tra AI có phối hợp theo cách mong muốn không:
 Không nên chỉ hỏi AI "Câu trả lời này có chính xác không?" rồi tin vào
 lời xác nhận của chính nó. Cần có bằng chứng hoặc kiểm tra độc lập khi
 độ chính xác quan trọng.
+
+## 9.3. Bổ sung từ bài học gốc
+
+- Description truyền đạt ý định của bạn; Discernment kiểm tra xem thứ nhận được có đáp ứng nhu cầu không. Hai năng lực này tạo thành vòng phản hồi liên tục.
+- Process Discernment tìm **lỗi logic, chỗ thiếu chú ý (attention gaps) và suy luận sai**.
+- Bài tập **"Expert Discernment"**:
+  1. Nhờ AI đưa ra **ba cách giải thích** về một khía cạnh trong lĩnh vực bạn rành.
+  2. Đánh giá từng cách theo độ chính xác, cách lập luận và cách truyền đạt.
+  3. Chọn cách tốt nhất và kém nhất, góp ý cụ thể, rồi cùng AI viết bản cải tiến.
+- Chuyên môn giúp bạn phát hiện những lỗi mà người mới dễ bỏ qua.
 
 ------------------------------------------------------------------------
 
@@ -513,6 +557,15 @@ Tránh phản hồi chung chung như "Làm tốt hơn đi". Hãy nói rõ:
 Không phải nhiệm vụ nào cũng cần nhiều vòng. Số vòng cần thiết phụ thuộc
 vào độ phức tạp, mức độ rủi ro và tiêu chí hoàn thành.
 
+## 10.3. Bổ sung từ bài học gốc — vòng lặp 4 bước trên dự án
+
+1. **Describe:** nêu yêu cầu theo đủ Product, Process, Performance.
+2. **Discern:** đánh giá đầu ra (Product), cách làm (Process) và cách Claude tương tác (Performance).
+3. **Refine:** góp ý, chỉnh mô tả và yêu cầu làm lại cho đến khi đạt.
+4. **Integrate:** bổ sung chuyên môn của bạn, quyết định giữ, sửa hay bỏ phần nào, và **chịu trách nhiệm về sản phẩm cuối**.
+
+Lặp lại bốn bước cho từng nhiệm vụ của dự án đã lập ở bài Project planning. Ba D đầu chủ yếu hướng tới hiệu quả và hiệu suất; Diligence hướng tới khía cạnh đạo đức và an toàn.
+
 ------------------------------------------------------------------------
 
 # 11. D4 -- Diligence: Trách nhiệm và sự cẩn trọng
@@ -522,7 +575,7 @@ toàn trong suốt quá trình tạo ra và sử dụng sản phẩm.
 
 ## 11.1. Ba thành phần của Diligence
 
-### 11.1. Creation Diligence -- Cẩn trọng trong quá trình tạo
+### 11.1.1. Creation Diligence -- Cẩn trọng trong quá trình tạo
 
 Xem xét công cụ, dữ liệu đầu vào, quy trình và rủi ro khi tạo sản phẩm.
 
@@ -536,7 +589,7 @@ Cần lưu ý:
 -   Xem xét thiên lệch, rủi ro gây hại và tác động của nội dung.
 -   Dùng nguồn và phương pháp phù hợp với mục tiêu.
 
-### 11.2. Transparency Diligence -- Minh bạch
+### 11.1.2. Transparency Diligence -- Minh bạch
 
 Trung thực về vai trò của AI khi bối cảnh hoặc quy định yêu cầu.
 
@@ -550,7 +603,7 @@ Ví dụ:
 
 Yêu cầu khai báo cụ thể tùy quy định và tình huống.
 
-### 11.3. Deployment Diligence -- Trách nhiệm khi đưa vào sử dụng
+### 11.1.3. Deployment Diligence -- Trách nhiệm khi đưa vào sử dụng
 
 Kiểm tra sản phẩm trước khi công bố, gửi cho người khác hoặc dùng để ra
 quyết định.
@@ -574,6 +627,20 @@ Ví dụ:
 
 AI có thể hỗ trợ tạo sản phẩm, nhưng không tự động nhận trách nhiệm thay
 cho người sử dụng sản phẩm đó.
+
+## 11.3. Bổ sung từ bài học gốc — Diligence statement
+
+- Kỳ vọng về minh bạch và kiểm chứng **khác nhau theo bối cảnh**: cá nhân, học thuật, nghề nghiệp.
+- **Diligence statement** là đoạn công khai vai trò của AI trong sản phẩm, kèm cam kết chịu trách nhiệm. Đoạn này gồm:
+  1. Tên các hệ thống AI đã dùng.
+  2. AI đã đóng góp những gì.
+  3. Quy trình bạn đã kiểm tra lại.
+  4. Khẳng định bạn chịu trách nhiệm về sản phẩm cuối.
+  5. Các lưu ý riêng theo bối cảnh.
+- Đặt diligence statement ở chân trang (footer), phụ lục hoặc metadata của sản phẩm. Khóa học có kèm một diligence statement mẫu của chính nó.
+- Câu hỏi tự rà soát:
+  - **Creation:** đã chọn công cụ AI nào và vì sao, đã chia sẻ dữ liệu gì, có lo ngại nào về quyền riêng tư, bảo mật, đạo đức?
+  - **Deployment:** đã kiểm tra tính chính xác và phù hợp của phần AI đóng góp ra sao, sản phẩm có đạt chuẩn của bạn không?
 
 ------------------------------------------------------------------------
 
@@ -636,23 +703,33 @@ tài liệu do người học cung cấp.
 
 ## 13.2. Áp dụng 4D
 
-**Delegation** - Con người xác định yêu cầu của giảng viên và tiêu chí
-chấm. - AI hỗ trợ đọc tài liệu, lập dàn ý, tính toán hoặc soạn bản nháp
-nếu công cụ có khả năng. - Con người kiểm tra số liệu và quyết định nội
-dung cuối cùng.
+**Delegation**
 
-**Description** - Nêu đề tài, mục tiêu, đối tượng đọc và cấu trúc bắt
-buộc. - Cung cấp tài liệu gốc. - Yêu cầu phân biệt số liệu, nhận xét và
-giả thuyết. - Nêu độ dài, giọng văn và cách trình bày.
+- Con người xác định yêu cầu của giảng viên và tiêu chí chấm.
+- AI hỗ trợ đọc tài liệu, lập dàn ý, tính toán hoặc soạn bản nháp nếu công cụ có khả năng.
+- Con người kiểm tra số liệu và quyết định nội dung cuối cùng.
 
-**Discernment** - Kiểm tra các phép tính và nhận xét có phù hợp dữ liệu
-không. - Đối chiếu nội dung với tài liệu gốc. - Phát hiện kết luận không
-có bằng chứng. - Yêu cầu sửa từng phần chưa đạt.
+**Description**
 
-**Diligence** - Không bịa số liệu hoặc nguồn. - Tôn trọng quy định sử
-dụng AI của trường. - Bảo vệ dữ liệu nhạy cảm. - Đảm bảo trích dẫn và
-nội dung đáp ứng yêu cầu học thuật. - Đọc và duyệt toàn bộ báo cáo trước
-khi nộp.
+- Nêu đề tài, mục tiêu, đối tượng đọc và cấu trúc bắt buộc.
+- Cung cấp tài liệu gốc.
+- Yêu cầu phân biệt số liệu, nhận xét và giả thuyết.
+- Nêu độ dài, giọng văn và cách trình bày.
+
+**Discernment**
+
+- Kiểm tra các phép tính và nhận xét có phù hợp dữ liệu không.
+- Đối chiếu nội dung với tài liệu gốc.
+- Phát hiện kết luận không có bằng chứng.
+- Yêu cầu sửa từng phần chưa đạt.
+
+**Diligence**
+
+- Không bịa số liệu hoặc nguồn.
+- Tôn trọng quy định sử dụng AI của trường.
+- Bảo vệ dữ liệu nhạy cảm.
+- Đảm bảo trích dẫn và nội dung đáp ứng yêu cầu học thuật.
+- Đọc và duyệt toàn bộ báo cáo trước khi nộp.
 
 ## 13.3. Prompt mẫu
 
@@ -684,47 +761,21 @@ khi nộp.
 
 ## 14.1. Bảng ghi nhớ nhanh toàn khóa
 
------------------------------------------------------------------------
-  Chủ đề                              Ghi nhớ ngắn
-  ----------------------------------- -----------------------------------
-  AI Fluency                          Sử dụng AI hiệu quả, hiệu suất, có
-                                      đạo đức và an toàn
-
-  Automation                          AI thực hiện nhiệm vụ xác định
-
-  Augmentation                        Con người và AI phối hợp
-
-  Agency                              AI được trao quyền chủ động trong
-                                      phạm vi đã xác định
-
-  Delegation                          Chọn đúng việc, đúng công cụ và
-                                      đúng mức tự chủ
-
-  Description                         Mô tả đầu ra, quy trình và cách
-                                      tương tác
-
-  Prompting                           Bối cảnh, ví dụ, ràng buộc, chia
-                                      bước, xem xét trước, vai trò/giọng
-                                      điệu
-
-  Discernment                         Đánh giá đầu ra, quy trình và cách
-                                      tương tác
-
-  Description--Discernment loop       Mô tả → tạo kết quả → đánh giá →
-                                      điều chỉnh
-
-  Diligence                           Cẩn trọng khi tạo, minh bạch và có
-                                      trách nhiệm khi triển khai
-
-  AI tạo sinh                         Tạo nội dung dựa trên mẫu đã học và
-                                      ngữ cảnh
-
-  Hallucination                       Nội dung có vẻ hợp lý nhưng có thể
-                                      sai hoặc không có căn cứ
-
-  Nguyên tắc cuối cùng                AI hỗ trợ công việc; con người kiểm
-                                      tra và chịu trách nhiệm
-  ------------------------------------------------------------------------
+| Chủ đề | Ghi nhớ ngắn |
+| --- | --- |
+| AI Fluency | Sử dụng AI hiệu quả, hiệu suất, có đạo đức và an toàn |
+| Automation | AI thực hiện nhiệm vụ xác định |
+| Augmentation | Con người và AI phối hợp |
+| Agency | AI được trao quyền chủ động trong phạm vi đã xác định |
+| Delegation | Chọn đúng việc, đúng công cụ và đúng mức tự chủ |
+| Description | Mô tả đầu ra, quy trình và cách tương tác |
+| Prompting | Bối cảnh, ví dụ, ràng buộc, chia bước, xem xét trước, vai trò/giọng điệu |
+| Discernment | Đánh giá đầu ra, quy trình và cách tương tác |
+| Description--Discernment loop | Mô tả → tạo kết quả → đánh giá → điều chỉnh |
+| Diligence | Cẩn trọng khi tạo, minh bạch và có trách nhiệm khi triển khai |
+| AI tạo sinh | Tạo nội dung dựa trên mẫu đã học và ngữ cảnh |
+| Hallucination | Nội dung có vẻ hợp lý nhưng có thể sai hoặc không có căn cứ |
+| Nguyên tắc cuối cùng | AI hỗ trợ công việc; con người kiểm tra và chịu trách nhiệm |
 
 ## 14.2. Câu hỏi tự kiểm tra
 
@@ -822,6 +873,12 @@ bối cảnh; không nên mặc định chuyển trách nhiệm cho AI.
 **Kết luận:** Hãy xem AI là đối tác hỗ trợ công việc chứ không phải
 nguồn chân lý tuyệt đối. Cách làm có thể nhớ bằng một chuỗi: **Chọn đúng
 việc → Nói rõ yêu cầu → Kiểm tra kết quả → Sử dụng có trách nhiệm.**
+
+## 14.4. Bổ sung từ bài học gốc — Conclusion
+
+- Sự thành thạo đến từ **luyện tập**, không thể có ngay lập tức. Chuyên môn và phán đoán của con người vẫn là nền tảng.
+- Bài tập cuối: trao đổi với Claude về khóa học (có thể tải lên tài liệu khung AI Fluency tại `ringling.libguides.com/ai/framework`), và hỏi Claude xem bạn đã nắm chắc D nào, D nào cần rèn thêm.
+- Tiếp theo: làm các hoạt động bổ sung, bài quiz cuối khóa, nhận huy hiệu hoàn thành và chia sẻ điều đã học.
 
 ------------------------------------------------------------------------
 

@@ -13,15 +13,15 @@
 ## Mục lục
 
 1.  [Tổng quan: Agent Skills là gì?](#1-tổng-quan-agent-skills-là-gì)
-2.  [Bài 1 --- What are skills?](#2-bài-1--what-are-skills)
+2.  [Bài 1 --- What are skills?](#2-bài-1-----what-are-skills)
 3.  [Bài 2 --- Creating your first
-    skill](#3-bài-2--creating-your-first-skill)
+    skill](#3-bài-2-----creating-your-first-skill)
 4.  [Bài 3 --- Configuration and multi-file
-    skills](#4-bài-3--configuration-and-multi-file-skills)
+    skills](#4-bài-3-----configuration-and-multi-file-skills)
 5.  [Bài 4 --- Skills vs. other Claude Code
-    features](#5-bài-4--skills-vs-other-claude-code-features)
-6.  [Bài 5 --- Sharing skills](#6-bài-5--sharing-skills)
-7.  [Bài 6 --- Troubleshooting skills](#7-bài-6--troubleshooting-skills)
+    features](#5-bài-4-----skills-vs-other-claude-code-features)
+6.  [Bài 5 --- Sharing skills](#6-bài-5-----sharing-skills)
+7.  [Bài 6 --- Troubleshooting skills](#7-bài-6-----troubleshooting-skills)
 8.  [Quy trình xây dựng skill từ đầu đến
     cuối](#8-quy-trình-xây-dựng-skill-từ-đầu-đến-cuối)
 9.  [Checklist và bài tập thực hành](#9-checklist-và-bài-tập-thực-hành)
@@ -74,16 +74,10 @@ dụng.
 
 Hai vị trí phổ biến:
 
-  -----------------------------------------------------------------------
-  Phạm vi                 Đường dẫn               Mục đích
-  ----------------------- ----------------------- -----------------------
-  Cá nhân (Personal)      `~/.claude/skills/`     Dùng lại trong nhiều dự
-                                                  án của một người
-
-  Dự án (Project)         `.claude/skills/` trong Chia sẻ quy trình và
-                          repository              tiêu chuẩn với cả nhóm
-                                                  qua Git
-  -----------------------------------------------------------------------
+| Phạm vi | Đường dẫn | Mục đích |
+| --- | --- | --- |
+| Cá nhân (Personal) | `~/.claude/skills/` | Dùng lại trong nhiều dự án của một người |
+| Dự án (Project) | `.claude/skills/` trong repository | Chia sẻ quy trình và tiêu chuẩn với cả nhóm qua Git |
 
 Trên Windows, thư mục skill cá nhân thường ở:
 
@@ -200,6 +194,13 @@ chạy một thao tác.
 2.  Nếu chỉ muốn checklist review PR được nạp khi review PR, nên dùng
     gì?
 3.  Vì sao mô tả skill cần nói rõ tình huống kích hoạt?
+
+## 2.5. Bổ sung từ bài học gốc
+
+- Trên Windows, skill cá nhân nằm ở `C:/Users/<tên-user>/.claude/skills`.
+- Khi skill được kích hoạt, terminal hiện dòng **"Successfully loaded skill"**. Ví dụ của bài: yêu cầu review nhánh `sg-221` thì skill `pr-review` được nạp.
+- Các trường hợp nên dùng skill: tiêu chuẩn review code, định dạng commit message, brand guideline, template tài liệu, checklist debug cho một framework.
+- **Quy tắc kinh nghiệm:** nếu bạn phải giải thích cùng một điều cho Claude nhiều lần, đó là lúc nên viết một skill.
 
 ------------------------------------------------------------------------
 
@@ -347,21 +348,12 @@ hoặc `docs`.
 Trong Claude Code, các trường frontmatter đều có thể tùy chọn;
 `description` là trường được khuyến nghị và có vai trò quan trọng nhất.
 
-  -----------------------------------------------------------------------
-  Trường                              Vai trò
-  ----------------------------------- -----------------------------------
-  `name`                              Tên định danh của skill; nếu bỏ
-                                      trống có thể lấy từ tên thư mục
-
-  `description`                       Mô tả chức năng và tình huống nên
-                                      kích hoạt
-
-  `allowed-tools`                     Danh sách công cụ được phê duyệt
-                                      trước khi skill hoạt động
-
-  `model`                             Chỉ định model dùng cho skill trong
-                                      Claude Code
-  -----------------------------------------------------------------------
+| Trường | Vai trò |
+| --- | --- |
+| `name` | Tên định danh của skill; nếu bỏ trống có thể lấy từ tên thư mục |
+| `description` | Mô tả chức năng và tình huống nên kích hoạt |
+| `allowed-tools` | Danh sách công cụ được phê duyệt trước khi skill hoạt động |
+| `model` | Chỉ định model dùng cho skill trong Claude Code |
 
 Một số lưu ý về giới hạn được bài học nêu:
 
@@ -551,25 +543,13 @@ cách kết hợp chúng thay vì dùng skill cho mọi vấn đề.
 
 ## 5.1. Bảng so sánh
 
-  -----------------------------------------------------------------------
-  Thành phần              Cách hoạt động          Dùng khi
-  ----------------------- ----------------------- -----------------------
-  `CLAUDE.md`             Nạp chỉ dẫn vào các     Quy tắc luôn áp dụng
-                          cuộc hội thoại          cho dự án
-
-  Skills                  Nạp theo yêu cầu phù    Kiến thức/quy trình
-                          hợp                     chuyên biệt theo tác vụ
-
-  Subagents               Chạy trong context      Muốn phân công công
-                          riêng, nhận nhiệm vụ    việc độc lập
-                          được giao               
-
-  Hooks                   Kích hoạt theo sự kiện  Muốn tự động chạy khi
-                                                  có event cụ thể
-
-  MCP servers             Cung cấp công cụ và     Cần kết nối hệ thống,
-                          tích hợp bên ngoài      API hoặc nguồn dữ liệu
-  -----------------------------------------------------------------------
+| Thành phần | Cách hoạt động | Dùng khi |
+| --- | --- | --- |
+| `CLAUDE.md` | Nạp chỉ dẫn vào các cuộc hội thoại | Quy tắc luôn áp dụng cho dự án |
+| Skills | Nạp theo yêu cầu phù hợp | Kiến thức/quy trình chuyên biệt theo tác vụ |
+| Subagents | Chạy trong context riêng, nhận nhiệm vụ được giao | Muốn phân công công việc độc lập |
+| Hooks | Kích hoạt theo sự kiện | Muốn tự động chạy khi có event cụ thể |
+| MCP servers | Cung cấp công cụ và tích hợp bên ngoài | Cần kết nối hệ thống, API hoặc nguồn dữ liệu |
 
 ## 5.2. `CLAUDE.md` và Skills
 
@@ -814,17 +794,12 @@ Nếu thư mục `.claude/agents` mới được tạo sau khi phiên Claude Cod
 
 ## 6.5. Chọn phương thức chia sẻ nào?
 
-  -----------------------------------------------------------------------
-  Nhu cầu                             Phương thức phù hợp
-  ----------------------------------- -----------------------------------
-  Dùng trong một dự án/nhóm           Commit vào `.claude/skills`
-
-  Dùng ở nhiều repository             Plugin và marketplace
-
-  Bắt buộc áp dụng trong toàn tổ chức Enterprise managed settings
-
-  Giao nhiệm vụ cho agent chuyên biệt Custom subagent khai báo `skills`
-  ------------------------------------------------------------------------
+| Nhu cầu | Phương thức phù hợp |
+| --- | --- |
+| Dùng trong một dự án/nhóm | Commit vào `.claude/skills` |
+| Dùng ở nhiều repository | Plugin và marketplace |
+| Bắt buộc áp dụng trong toàn tổ chức | Enterprise managed settings |
+| Giao nhiệm vụ cho agent chuyên biệt | Custom subagent khai báo `skills` |
 
 # 7. Bài 6 --- Troubleshooting skills
 
@@ -990,25 +965,13 @@ thực hiện quy trình.
 
 Các nguyên nhân thường gặp:
 
-  -----------------------------------------------------------------------
-  Lỗi                     Nguyên nhân             Cách xử lý
-  ----------------------- ----------------------- -----------------------
-  Missing dependencies    Thiếu package/thư viện  Cài dependency và ghi
-                          cần thiết               rõ yêu cầu trong hướng
-                                                  dẫn
-
-  Permission denied       Script không có quyền   Cấp quyền bằng
-                          thực thi                `chmod +x`
-
-  Path issue              Đường dẫn không tương   Ưu tiên dấu `/` cho
-                          thích                   đường dẫn
-
-  Script failure          Lệnh hoặc môi trường    Kiểm tra output, exit
-                          chạy lỗi                code và dependency
-
-  Wrong skill             Mô tả bị chồng lấn      Làm description cụ thể
-                                                  hơn
-  -----------------------------------------------------------------------
+| Lỗi | Nguyên nhân | Cách xử lý |
+| --- | --- | --- |
+| Missing dependencies | Thiếu package/thư viện cần thiết | Cài dependency và ghi rõ yêu cầu trong hướng dẫn |
+| Permission denied | Script không có quyền thực thi | Cấp quyền bằng `chmod +x` |
+| Path issue | Đường dẫn không tương thích | Ưu tiên dấu `/` cho đường dẫn |
+| Script failure | Lệnh hoặc môi trường chạy lỗi | Kiểm tra output, exit code và dependency |
+| Wrong skill | Mô tả bị chồng lấn | Làm description cụ thể hơn |
 
 Ví dụ:
 
@@ -1215,69 +1178,44 @@ Bài tập mở rộng:
 9.  Khi skill không kích hoạt, nên kiểm tra điều gì đầu tiên?
 10. Khi skill không được nạp, cần kiểm tra cấu trúc file nào?
 
+**Gợi ý đáp án:**
+
+1. `CLAUDE.md` được nạp vào **mọi** cuộc hội thoại ngay từ đầu. Skill ban đầu chỉ nạp **tên và description**; nội dung `SKILL.md` chỉ được nạp khi yêu cầu khớp với description.
+2. Vì Claude quyết định kích hoạt skill bằng cách so khớp ngữ nghĩa yêu cầu với `description`. Nếu description mơ hồ, skill không bao giờ được gọi, dù phần hướng dẫn bên dưới có chi tiết đến đâu.
+3. Không. `allowed-tools` chỉ **phê duyệt trước** các tool được liệt kê trong lượt skill đang hoạt động (không hỏi quyền). Các tool khác vẫn dùng được theo cơ chế quyền thông thường. Muốn loại bỏ tool thì dùng `disallowed-tools`.
+4. Giữ `SKILL.md` ngắn (dưới khoảng 500 dòng) và tách chi tiết ra các file `references/`, `scripts/`, `assets/`. Claude chỉ đọc file phụ khi cần, còn script được chạy mà không nạp mã nguồn vào context (chỉ output tốn token).
+5. Khi muốn giao việc chạy độc lập trong **context riêng** (không làm đầy context chính), cần quyền tool khác với hội thoại chính, hoặc muốn có góc nhìn tách biệt (ví dụ review code). Skill thì bổ sung kiến thức vào hội thoại hiện tại.
+6. Hook được kích hoạt bởi **sự kiện** (trước hoặc sau khi gọi tool, khi gửi prompt, khi kết thúc…) và luôn chạy một cách xác định. Skill được kích hoạt bởi **yêu cầu** của người dùng khi khớp description.
+7. Commit vào repository (`.claude/skills/`); phân phối qua **plugin và marketplace**; triển khai cấp **enterprise** qua managed settings.
+8. Không. Subagent mới không thấy các skill đã được gọi ở agent chính. Nó chỉ dùng skill nếu được khai báo trong trường `skills` (nạp toàn bộ khi khởi động) hoặc tự gọi qua tool `Skill`, nên cần giữ `Skill` trong danh sách `tools`.
+9. Kiểm tra `description`: có nêu rõ làm gì và khi nào dùng không, có chứa cụm từ người dùng thực sự hay nói không. Thử nhiều cách diễn đạt khác nhau và bổ sung những cụm không kích hoạt được.
+10. `SKILL.md` phải nằm trong **một thư mục con có tên** (ví dụ `.claude/skills/pr-review/SKILL.md`), không đặt thẳng ở thư mục gốc `skills/`. Tên file phải đúng là `SKILL.md`. Frontmatter YAML phải parse được; chạy `claude plugin validate` hoặc `claude --debug` để kiểm tra.
+
 ------------------------------------------------------------------------
 
 # 10. Bảng thuật ngữ
 
-  -----------------------------------------------------------------------
-  Thuật ngữ                           Giải thích
-  ----------------------------------- -----------------------------------
-  Agent Skill                         Gói hướng dẫn và tài nguyên giúp
-                                      agent thực hiện tác vụ chuyên biệt
-
-  `SKILL.md`                          File trung tâm chứa metadata và chỉ
-                                      dẫn của skill
-
-  Frontmatter                         Phần metadata YAML ở đầu file
-                                      Markdown
-
-  `description`                       Mô tả chức năng và điều kiện kích
-                                      hoạt skill
-
-  Semantic matching                   So khớp theo ý nghĩa yêu cầu, không
-                                      chỉ theo từ khóa chính xác
-
-  Context window                      Không gian ngữ cảnh model có thể
-                                      tiếp nhận trong một lượt làm việc
-
-  Progressive disclosure              Chia nội dung thành nhiều cấp và
-                                      chỉ nạp chi tiết khi cần
-
-  `allowed-tools`                     Công cụ được phê duyệt trước khi
-                                      skill hoạt động
-
-  `disallowed-tools`                  Công cụ bị loại khỏi tập công cụ có
-                                      thể sử dụng
-
-  Personal skill                      Skill dùng trong nhiều dự án của cá
-                                      nhân
-
-  Project skill                       Skill nằm trong repository và được
-                                      chia sẻ cùng dự án
-
-  Enterprise skill                    Skill được quản lý và triển khai ở
-                                      cấp tổ chức
-
-  Plugin                              Gói mở rộng có thể phân phối và cài
-                                      đặt qua marketplace
-
-  Marketplace                         Nơi phân phối và khám phá plugin
-
-  Subagent                            Agent con chạy trong context riêng
-                                      để xử lý nhiệm vụ được giao
-
-  Hook                                Cơ chế chạy hành động khi một sự
-                                      kiện cụ thể xảy ra
-
-  MCP server                          Thành phần cung cấp công cụ/tích
-                                      hợp với hệ thống bên ngoài
-
-  Validator                           Công cụ kiểm tra cấu trúc và tính
-                                      hợp lệ của skill/plugin
-
-  Runtime error                       Lỗi xảy ra trong quá trình thực thi
-                                      skill hoặc script
-  ------------------------------------------------------------------------
+| Thuật ngữ | Giải thích |
+| --- | --- |
+| Agent Skill | Gói hướng dẫn và tài nguyên giúp agent thực hiện tác vụ chuyên biệt |
+| `SKILL.md` | File trung tâm chứa metadata và chỉ dẫn của skill |
+| Frontmatter | Phần metadata YAML ở đầu file Markdown |
+| `description` | Mô tả chức năng và điều kiện kích hoạt skill |
+| Semantic matching | So khớp theo ý nghĩa yêu cầu, không chỉ theo từ khóa chính xác |
+| Context window | Không gian ngữ cảnh model có thể tiếp nhận trong một lượt làm việc |
+| Progressive disclosure | Chia nội dung thành nhiều cấp và chỉ nạp chi tiết khi cần |
+| `allowed-tools` | Công cụ được phê duyệt trước khi skill hoạt động |
+| `disallowed-tools` | Công cụ bị loại khỏi tập công cụ có thể sử dụng |
+| Personal skill | Skill dùng trong nhiều dự án của cá nhân |
+| Project skill | Skill nằm trong repository và được chia sẻ cùng dự án |
+| Enterprise skill | Skill được quản lý và triển khai ở cấp tổ chức |
+| Plugin | Gói mở rộng có thể phân phối và cài đặt qua marketplace |
+| Marketplace | Nơi phân phối và khám phá plugin |
+| Subagent | Agent con chạy trong context riêng để xử lý nhiệm vụ được giao |
+| Hook | Cơ chế chạy hành động khi một sự kiện cụ thể xảy ra |
+| MCP server | Thành phần cung cấp công cụ/tích hợp với hệ thống bên ngoài |
+| Validator | Công cụ kiểm tra cấu trúc và tính hợp lệ của skill/plugin |
+| Runtime error | Lỗi xảy ra trong quá trình thực thi skill hoặc script |
 
 ## Nguồn tham khảo
 
