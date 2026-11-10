@@ -17,8 +17,24 @@ Tất cả các tài liệu được thiết kế theo cấu trúc module đồn
 | **5** | [introduction-to-agent-skills-notes.md](./introduction-to-agent-skills-notes.md) | Introduction to agent skills | Xây dựng Agent Skills, cấu hình `SKILL.md`, progressive disclosure, công cụ tiền phê duyệt `allowed-tools`. |
 | **6** | [introduction-to-subagents-notes.md](./introduction-to-subagents-notes.md) | Introduction to subagents | Kiến trúc đa tác tử phân cấp, cô lập ngữ cảnh (context isolation), 4 design patterns và least privilege. |
 | **7** | [building-with-the-claude-api-notes.md](./building-with-the-claude-api-notes.md) | Building with the Claude API | Xây dựng ứng dụng Claude API production: Prompt evaluation, Tool use, RAG, MCP, Vision, Agents & Workflows. |
+| **8** | [claude-code-in-action-notes.md](./claude-code-in-action-notes.md) | Claude Code in Action | Phiên dài, permission modes, Hooks, automation, verification và Plugins. |
 
 ---
+
+## Đề cương ôn tập
+
+Thư mục `study-guides/` có đề cương tự ôn cho từng khóa học. Mỗi tệp tóm tắt kiến thức cốt lõi, khái niệm dễ nhầm và câu hỏi tự kiểm tra kèm đáp án gợi ý; đây không phải đề thi chính thức.
+
+| Khóa học | Đề cương |
+| --- | --- |
+| AI Fluency: Framework and Foundations | [Mở đề cương](./study-guides/ai-fluency-framework-foundations.md) |
+| AI Capabilities and Limitations | [Mở đề cương](./study-guides/ai-capabilities-and-limitations.md) |
+| Claude 101 | [Mở đề cương](./study-guides/claude-101.md) |
+| Claude Code 101 | [Mở đề cương](./study-guides/claude-code-101.md) |
+| Introduction to agent skills | [Mở đề cương](./study-guides/introduction-to-agent-skills.md) |
+| Introduction to subagents | [Mở đề cương](./study-guides/introduction-to-subagents.md) |
+| Building with the Claude API | [Mở đề cương](./study-guides/building-with-the-claude-api.md) |
+| Claude Code in Action | [Mở đề cương](./study-guides/claude-code-in-action.md) |
 
 ## Cấu trúc chuẩn của mỗi tài liệu
 
@@ -36,3 +52,4 @@ Mỗi bài học được tổ chức theo cấu trúc thống nhất:
 
 - Nội dung gốc thuộc bản quyền của [Anthropic](https://www.anthropic.com/) / [Claude Academy](https://academy.claude.com/).
 - Bộ tài liệu ghi chú được biên soạn và bản địa hóa phục vụ mục đích học tập và nghiên cứu cá nhân.
+
