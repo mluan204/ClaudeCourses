@@ -21,20 +21,39 @@ Tất cả các tài liệu được thiết kế theo cấu trúc module đồn
 
 ---
 
-## Đề cương ôn tập
+## Tài liệu ôn thi
 
-Thư mục `study-guides/` có đề cương tự ôn cho từng khóa học. Mỗi tệp tóm tắt kiến thức cốt lõi, khái niệm dễ nhầm và câu hỏi tự kiểm tra kèm đáp án gợi ý; đây không phải đề thi chính thức.
+Thư mục `study-guides/` có tài liệu tự ôn cho từng khóa học: giải thích kiến thức trọng tâm, ví dụ và tình huống ứng dụng, câu hỏi kèm đáp án giải thích, điểm dễ nhầm và checklist tự đánh giá. Đây là tài liệu hỗ trợ học tập, không phải đề thi chính thức.
 
-| Khóa học | Đề cương |
+Nội dung đã được đối chiếu với Claude Academy và tài liệu Anthropic ngày 10/11/2026. [Xem báo cáo kiểm chứng nguồn](./claude-academy-source-audit.md). Chi tiết sản phẩm, API và permission có thể thay đổi theo phiên bản.
+
+| Khóa học | Tài liệu ôn thi |
 | --- | --- |
-| AI Fluency: Framework and Foundations | [Mở đề cương](./study-guides/ai-fluency-framework-foundations.md) |
-| AI Capabilities and Limitations | [Mở đề cương](./study-guides/ai-capabilities-and-limitations.md) |
-| Claude 101 | [Mở đề cương](./study-guides/claude-101.md) |
-| Claude Code 101 | [Mở đề cương](./study-guides/claude-code-101.md) |
-| Introduction to agent skills | [Mở đề cương](./study-guides/introduction-to-agent-skills.md) |
-| Introduction to subagents | [Mở đề cương](./study-guides/introduction-to-subagents.md) |
-| Building with the Claude API | [Mở đề cương](./study-guides/building-with-the-claude-api.md) |
-| Claude Code in Action | [Mở đề cương](./study-guides/claude-code-in-action.md) |
+| AI Fluency: Framework and Foundations | [Mở tài liệu](./study-guides/ai-fluency-framework-foundations.md) |
+| AI Capabilities and Limitations | [Mở tài liệu](./study-guides/ai-capabilities-and-limitations.md) |
+| Claude 101 | [Mở tài liệu](./study-guides/claude-101.md) |
+| Claude Code 101 | [Mở tài liệu](./study-guides/claude-code-101.md) |
+| Introduction to agent skills | [Mở tài liệu](./study-guides/introduction-to-agent-skills.md) |
+| Introduction to subagents | [Mở tài liệu](./study-guides/introduction-to-subagents.md) |
+| Building with the Claude API | [Mở tài liệu](./study-guides/building-with-the-claude-api.md) |
+| Claude Code in Action | [Mở tài liệu](./study-guides/claude-code-in-action.md) |
+
+## Lộ trình học gợi ý
+
+Học theo thứ tự từ nền tảng AI đến sử dụng Claude, rồi đi sâu vào Claude Code:
+
+| Bước | Khóa học | Trọng tâm |
+| ---: | --- | --- |
+| 1 | [AI Capabilities and Limitations](./study-guides/ai-capabilities-and-limitations.md) | Hiểu năng lực và giới hạn của mô hình ngôn ngữ lớn. |
+| 2 | [AI Fluency: Framework and Foundations](./study-guides/ai-fluency-framework-foundations.md) | Học khung 4D để giao việc, mô tả, đánh giá và sử dụng AI có trách nhiệm. |
+| 3 | [Claude 101](./study-guides/claude-101.md) | Làm quen với các sản phẩm và cách làm việc cùng Claude. |
+| 4 | [Claude Code 101](./study-guides/claude-code-101.md) | Nắm agentic loop và quy trình Explore → Plan → Code → Commit. |
+| 5 | [Introduction to agent skills](./study-guides/introduction-to-agent-skills.md) | Tạo workflow tái sử dụng cho Claude Code. |
+| 6 | [Introduction to subagents](./study-guides/introduction-to-subagents.md) | Phân rã task và giao việc cho agent chuyên biệt. |
+| 7 | [Claude Code in Action](./study-guides/claude-code-in-action.md) | Mở rộng sang phiên dài, tự động hóa và kiểm chứng. |
+| 8 | [Building with the Claude API](./study-guides/building-with-the-claude-api.md) | Xây ứng dụng với API, tool use, RAG, MCP và agent workflows. |
+
+Nếu mục tiêu là xây ứng dụng qua API, có thể học **Building with the Claude API** ngay sau Claude 101; khóa này phù hợp hơn khi đã có nền tảng Python, JSON và quyền truy cập API.
 
 ## Cấu trúc chuẩn của mỗi tài liệu
 

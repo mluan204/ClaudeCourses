@@ -1,73 +1,110 @@
-# Đề cương ôn tập: AI Fluency — Framework and Foundations
+# Tài liệu ôn thi: AI Fluency — Framework and Foundations
 
-> Tài liệu tự ôn trước khi kiểm tra kiến thức; không phải đề thi chính thức.  
-> Ghi chú đầy đủ: [AI Fluency: Framework and Foundations](../ai-fluency-framework-foundations-notes.md)
+> Bản ôn tập đầy đủ để tự học và luyện vận dụng; không phải đề thi hay đáp án chính thức của Claude Academy. Đối chiếu kiến thức với [ghi chú khóa học](../ai-fluency-framework-foundations-notes.md) và [trang Claude Academy](https://academy.claude.com/courses/ai-fluency-framework-foundations).
 
-## Mục tiêu cần đạt
+## 1. Mục tiêu và bản đồ khóa học
 
-- Giải thích AI Fluency là cộng tác với AI hiệu quả, có phán đoán và có trách nhiệm.
-- Vận dụng khung 4D vào một nhiệm vụ.
-- Viết yêu cầu có bối cảnh, kết quả mong muốn, quy trình và ràng buộc.
-- Đánh giá đầu ra thay vì mặc định tin vào câu trả lời.
+Sau khi ôn, bạn nên có thể: giải thích AI Fluency; phân biệt ba hình thức Automation, Augmentation và Agency; áp dụng 4D; mô tả yêu cầu theo đầu ra, quy trình và cách tương tác; đánh giá kết quả; chịu trách nhiệm với dữ liệu và sản phẩm AI hỗ trợ.
 
-## Khung xương sống: 4D
+AI Fluency là năng lực cộng tác với AI **hiệu quả, hiệu suất, có đạo đức và an toàn**. Đây không phải danh sách mẹo prompt. Người dùng cần quyết định việc nào nên giao, mô tả rõ kết quả, đánh giá phần AI làm, rồi chịu trách nhiệm cho cách sử dụng kết quả. Các nguyên tắc này dùng được với nhiều mô hình; ví dụ trong khóa có thể dùng Claude.
 
-| Năng lực | Câu hỏi cần đặt | Thành phần chính |
-| --- | --- | --- |
-| **Delegation** — giao việc | Việc nào nên giao, công cụ nào phù hợp, phần nào cần người làm? | Problem awareness, platform awareness, task delegation |
-| **Description** — mô tả | Cần tạo kết quả gì, theo quy trình nào, và muốn tương tác ra sao? | Product, process, performance description |
-| **Discernment** — đánh giá | Kết quả có đúng, phù hợp và đáng tin không? | Product, process, performance discernment |
-| **Diligence** — trách nhiệm | Dữ liệu, tác động, minh bạch và triển khai có được quản lý tốt không? | Creation, transparency, deployment diligence |
+## 2. Ba hình thức làm việc với AI
 
-Cách nhớ: **Delegation** chọn việc; **Description** nói rõ việc; **Discernment** kiểm tra kết quả; **Diligence** chịu trách nhiệm khi sử dụng.
+| Hình thức | Vai trò của AI | Ví dụ | Phần người dùng giữ |
+| --- | --- | --- | --- |
+| **Automation — tự động hóa** | Thực hiện một nhiệm vụ xác định theo chỉ dẫn | Chuyển ghi chú thành danh sách việc | Xác định dữ liệu, quy tắc và kiểm tra lỗi |
+| **Augmentation — tăng cường năng lực** | Cùng người dùng phân tích, tạo ý tưởng hoặc giải quyết vấn đề | Đưa ra ba phương án, sau đó cùng phản biện | Chọn hướng đi và đưa ra phán đoán cuối |
+| **Agency — trao quyền chủ động** | Thực hiện chuỗi bước trong mục tiêu, giới hạn và quyền đã định | Tìm tài liệu, tổng hợp và soạn báo cáo nháp | Đặt mục tiêu/giới hạn, theo dõi, phê duyệt và chịu trách nhiệm |
 
-## Mô tả nhiệm vụ tốt
+Ba hình thức là một phổ về mức chủ động được giao, không phải thứ bậc “càng tự động càng tốt”. Task lặp lại, tiêu chí kiểm tra rõ phù hợp với Automation. Task cần phán đoán thường hợp với Augmentation. Agency chỉ phù hợp khi phạm vi, quyền và điều kiện dừng được mô tả đủ rõ. Cả bốn năng lực 4D đều cần trong cả ba hình thức.
 
-Nêu đủ bốn phần:
+## 3. Khung 4D
 
-- **Bối cảnh:** vai trò, mục tiêu, người đọc và dữ liệu.
-- **Nhiệm vụ/đầu ra:** hành động, định dạng và tiêu chí hoàn thành.
-- **Quy trình:** bước cần làm, nguồn được phép dùng, lúc cần hỏi lại.
-- **Ràng buộc/tương tác:** điều cần tránh, giọng điệu, mức chi tiết, cách nêu điều chưa chắc chắn.
+### D1 — Delegation: quyết định giao việc
 
-## Sáu kỹ thuật viết prompt
+Trước khi gửi prompt, phân tích ba phần:
 
-1. Cung cấp bối cảnh liên quan.
-2. Đưa ví dụ cho đầu ra mong muốn.
-3. Nêu ràng buộc cụ thể.
-4. Chia việc phức tạp thành bước nhỏ.
-5. Yêu cầu xem xét/lập kế hoạch trước khi trả lời khi cần.
-6. Xác định vai trò hoặc giọng điệu nếu giúp task rõ hơn.
+1. **Problem Awareness:** Mục tiêu thật là gì? Thành công trông như thế nào? Sai sót gây hậu quả gì? Phần nào cần chuyên môn hoặc phán đoán của con người?
+2. **Platform Awareness:** Công cụ có khả năng cần thiết không? Có thể đọc file, duyệt web, chạy code hoặc truy cập dữ liệu không? Nguồn và quyền truy cập có phù hợp không?
+3. **Task Delegation:** Chia phần việc giữa người và AI. Giao phần có thể diễn đạt và kiểm tra; giữ lại quyết định có rủi ro, trách nhiệm hoặc thiếu tiêu chí rõ.
 
-Làm việc theo vòng lặp: **Description → đầu ra → Discernment → phản hồi cụ thể → đầu ra mới**. Phản hồi tốt nói rõ điều gì đúng, điều gì chưa đạt và cần sửa thế nào.
+Giao việc tốt không phải “đưa hết cho AI”. Người giao cần cung cấp đủ bối cảnh, nhưng không nên chia sẻ dữ liệu nhạy cảm không cần thiết.
 
-## Khái niệm nền
+### D2 — Description: diễn đạt công việc
 
-- Mô hình ngôn ngữ tạo văn bản bằng cách dự đoán token tiếp theo; sự trôi chảy không chứng minh sự thật.
-- Pre-training tạo năng lực/kiến thức nền; fine-tuning định hình cách làm theo chỉ dẫn và một số xu hướng hành vi.
-- AI có thể hỗ trợ viết, tóm tắt, phân tích và tạo ý tưởng, nhưng vẫn cần nguồn, tiêu chí và kiểm chứng.
+Mô tả ba lớp:
 
-## Điểm dễ nhầm
+- **Product description:** Sản phẩm cuối là gì, dành cho ai, ở định dạng/độ dài nào, tiêu chí nào quyết định là đạt?
+- **Process description:** AI cần làm theo bước nào, dùng nguồn nào, xử lý bất định ra sao, khi nào cần hỏi lại?
+- **Performance description:** Muốn tương tác theo cách nào: đề xuất trước hay làm ngay, nêu giả định, hỏi từng câu hay báo phần chưa chắc?
 
-- Giao việc cho AI không đồng nghĩa giao luôn trách nhiệm cho AI.
-- Product description nói đầu ra; process description nói cách làm; task tốt thường nêu cả hai.
-- Discernment kiểm tra cả kết quả lẫn quy trình.
-- Minh bạch và phê duyệt là một phần của Diligence, không phải bước trang trí.
+Prompt hiệu quả thường có mục tiêu, bối cảnh, đầu ra, tiêu chí, ràng buộc và cách xử lý phần còn thiếu. Chỉ đưa những thông tin hỗ trợ nhiệm vụ; nhiều chữ hơn không đồng nghĩa mô tả tốt hơn.
 
-## Tự kiểm tra
+**Ví dụ — yêu cầu mơ hồ:** “Viết báo cáo về kết quả khảo sát.”
 
-1. **4D gồm gì?** Delegation, Description, Discernment, Diligence.
-2. **Prompt tốt cần gì?** Bối cảnh, nhiệm vụ, đầu ra, quy trình và ràng buộc phù hợp.
-3. **Khi nào nên giao task cho AI?** Khi nền tảng phù hợp, mục tiêu rõ, dữ liệu có thể cung cấp an toàn và có cách kiểm tra.
-4. **Discernment kiểm tra gì?** Tính đúng, độ phù hợp, chất lượng đầu ra và cách tạo ra nó.
-5. **Nêu ba cách giảm rủi ro.** Cung cấp nguồn, yêu cầu nêu phần chưa chắc chắn, xác minh dữ kiện quan trọng.
-6. **Vì sao dùng ví dụ trong prompt?** Để minh họa cấu trúc, phong cách hoặc mức chi tiết cụ thể.
-7. **Diligence áp dụng lúc nào?** Trước, trong và sau khi tạo/triển khai kết quả.
-8. **Câu hỏi kiểm tra trước khi gửi kết quả?** Tôi đã xác minh dữ kiện, nguồn, quyền dùng dữ liệu và phần cần phê duyệt chưa?
+**Phiên bản có thể kiểm tra:** “Dựa chỉ trên bảng khảo sát đính kèm, viết bản tóm tắt tiếng Việt tối đa 500 từ cho ban giám hiệu. Nêu ba xu hướng có số liệu, hai giới hạn của mẫu và một đề xuất. Không suy diễn quan hệ nhân quả. Gắn mỗi số liệu với tên cột hoặc bảng; hỏi tôi nếu định nghĩa cột không rõ.”
 
-## Checklist trước khi thi
+Sáu kỹ thuật nền tảng: cung cấp bối cảnh; đưa ví dụ; nêu ràng buộc; chia việc phức tạp; yêu cầu lập kế hoạch/xem xét trước khi trả lời khi hữu ích; chỉ định vai trò hoặc giọng điệu khi nó làm yêu cầu cụ thể hơn. Giao vai trò không thay thế dữ liệu và tiêu chí.
 
-- [ ] Giải thích và áp dụng từng chữ D bằng ví dụ.
-- [ ] Viết prompt có bối cảnh, nhiệm vụ, đầu ra và ràng buộc.
-- [ ] Phân biệt câu trả lời trôi chảy với câu trả lời đã kiểm chứng.
-- [ ] Nêu cách minh bạch và chịu trách nhiệm khi triển khai.
+### D3 — Discernment: đánh giá
+
+Đánh giá ở ba lớp:
+
+- **Product discernment:** Kết quả có đúng, đủ, hữu ích, đúng định dạng và phù hợp người đọc không?
+- **Process discernment:** Nguồn, bước làm và giả định có thích hợp không? Có bỏ qua bước cần thiết không?
+- **Performance discernment:** Cách tương tác có hiệu quả không? Prompt có thiếu rõ ràng? Ta có kiểm tra kết quả đủ kỹ không?
+
+Description và Discernment tạo thành vòng lặp: mô tả → nhận đầu ra → so với tiêu chí → nêu phản hồi cụ thể → sửa yêu cầu/đầu ra → kiểm tra lại. Phản hồi “chưa ổn” ít hữu ích; phản hồi tốt chỉ ra đoạn nào sai tiêu chí, bằng chứng gì và yêu cầu sửa ra sao.
+
+### D4 — Diligence: cẩn trọng và trách nhiệm
+
+- **Creation diligence:** Cân nhắc công cụ, nguồn dữ liệu, quyền riêng tư, thiên lệch và rủi ro ngay trong lúc tạo.
+- **Transparency diligence:** Minh bạch về sự tham gia của AI khi người nhận cần biết để diễn giải hoặc đánh giá sản phẩm.
+- **Deployment diligence:** Trước khi sử dụng/xuất bản, kiểm tra quyền, tác động, phê duyệt và trách nhiệm nếu kết quả sai.
+
+AI có thể hỗ trợ tạo nội dung; việc đưa nội dung đó vào quyết định hoặc phát hành vẫn là lựa chọn của con người/tổ chức. Không chuyển trách nhiệm sang công cụ.
+
+## 4. Bài tập vận dụng có lời giải mẫu
+
+**Tình huống:** Bạn cần viết báo cáo học thuật từ năm bài nghiên cứu PDF. Báo cáo có thể ảnh hưởng đến đề xuất của khoa.
+
+1. **Delegation:** Giao cho AI trích xuất câu hỏi nghiên cứu, phương pháp và phát hiện để lập bảng so sánh; giữ việc xác định chất lượng bằng chứng và khuyến nghị cuối cùng cho người nghiên cứu. Kiểm tra khả năng đọc PDF và chính sách dữ liệu.
+2. **Description:** Nêu đối tượng độc giả, cấu trúc bảng, yêu cầu trích trang, quy tắc “không tìm thấy thì ghi chưa xác định”, và yêu cầu tách kết quả tác giả nêu với suy luận của người viết.
+3. **Discernment:** Đối chiếu trích dẫn, số liệu và diễn giải với PDF gốc; tìm phản ví dụ; kiểm tra xem năm bài có bị khái quát quá mức không.
+4. **Diligence:** Không tải tài liệu hạn chế lên dịch vụ nếu chưa được phép; lưu lại nguồn; công khai cách AI hỗ trợ theo quy định của khoa; người nghiên cứu duyệt bản cuối.
+
+**Tiêu chí chấm:** Câu trả lời tốt nêu cả phần giao và phần giữ lại, tiêu chí đầu ra kiểm tra được, cách kiểm chứng bằng nguồn gốc, và rủi ro/biện pháp trách nhiệm.
+
+## 5. Câu hỏi ôn tập
+
+1. **AI Fluency khác việc biết nhiều prompt ở điểm nào?** Đây là năng lực cộng tác toàn diện: quyết định giao việc, mô tả, đánh giá và chịu trách nhiệm; prompt chỉ là một phần.
+2. **Automation và Agency khác nhau thế nào?** Automation thực hiện một nhiệm vụ xác định; Agency có mức chủ động cao hơn trong chuỗi công việc nhưng vẫn trong mục tiêu/quyền do con người đặt.
+3. **Nêu ba thành phần của Delegation.** Nhận thức vấn đề, nhận thức nền tảng, phân công nhiệm vụ.
+4. **Phân biệt Product, Process và Performance Description.** Sản phẩm cần tạo; cách làm; cách tương tác.
+5. **Một prompt dài có luôn tốt hơn prompt ngắn không?** Không. Tính liên quan, thứ tự và tiêu chí rõ quan trọng hơn số chữ.
+6. **Discernment chỉ kiểm tra câu trả lời cuối không?** Không; còn xem quy trình và cách cộng tác.
+7. **Mô tả vòng Description–Discernment.** Mô tả, đánh giá so với tiêu chí, phản hồi cụ thể, điều chỉnh và lặp đến khi đạt.
+8. **Diligence có ba phần nào?** Cẩn trọng khi tạo, minh bạch và có trách nhiệm khi triển khai.
+9. **Một dấu hiệu cần giữ quyết định ở con người?** Hậu quả sai cao, yêu cầu mơ hồ, cần thẩm quyền/chuyên môn hoặc không có cách kiểm chứng đủ tin cậy.
+10. **Viết lại yêu cầu “tóm tắt báo cáo này” thành yêu cầu kiểm tra được.** Câu trả lời cần nêu người đọc, giới hạn độ dài, nội dung cần có, dữ liệu/nguồn được phép dùng và cách báo phần không rõ.
+
+## 6. Những nhầm lẫn thường gặp
+
+- 4D không phải bốn bước tuyến tính chỉ dùng một lần; chúng là các năng lực liên kết và có thể quay lại nhiều lần.
+- Giao task cho AI không giao luôn quyền quyết định hay trách nhiệm.
+- “Đóng vai chuyên gia” không bù được thiếu dữ liệu, nguồn hoặc tiêu chí.
+- Đầu ra trôi chảy không chứng minh đúng; cần Discernment.
+- Minh bạch không chỉ là ghi “có dùng AI”; phải tuân theo bối cảnh, chính sách và nhu cầu của người nhận.
+
+## 7. Tự đánh giá trước kỳ thi
+
+- [ ] Phân biệt Automation, Augmentation và Agency bằng tình huống mới.
+- [ ] Áp dụng ba thành phần của Delegation và ba lớp Description.
+- [ ] Viết một prompt có tiêu chí hoàn thành, nguồn và cách hỏi lại.
+- [ ] Đánh giá đầu ra, quy trình và cách tương tác.
+- [ ] Giải thích các quyết định về quyền riêng tư, minh bạch và triển khai.
+
+## Nguồn tham khảo
+
+- [Claude Academy — AI Fluency: Framework and Foundations](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+- [Claude Academy — AI Capabilities and Limitations (khóa bổ trợ)](https://academy.claude.com/courses/ai-capabilities-and-limitations)
